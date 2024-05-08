@@ -6,7 +6,7 @@ import backgroundLast from "@/assets/home/arvore-verde.png"
 
 export default function Home() {
   return (
-    <section className="flex justify-center items-center pt-10 flex-col w-full h-screen">
+    <section className="flex justify-center items-center pt-10 overflow-hidden flex-col w-full h-screen">
       <div className="flex items-center px-10 justify-center w-full h-auto">
         <Image
           className="w-3/4"
