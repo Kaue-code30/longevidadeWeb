@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import bannerHome from "@/assets/home/bannerHome.svg";
-import logo from "@/assets/header/logo.svg";
+import logo from "@/assets/header/logo.png";
 import backgroundLast from "@/assets/home/arvore-verde.png"
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <section className="flex justify-center items-center pt-10 flex-col w-full h-screen">
       <div className="flex items-center px-10 justify-center w-full h-auto">
         <Image
-          className="w-auto"
+          className="w-3/4"
           src={logo}
           alt="Let's Go Forever Image"
           width={100}
@@ -24,7 +24,7 @@ export default function Home() {
           width={100}
           height={100}
         />
-        <h1 className="text-2xl font-bold text-center w-full">Protocolo Let's Go Forever 60 dias</h1>
+        <h1 className="text-3xl font-bold text-center w-full">Protocolo Let's Go Forever 60 dias</h1>
         <p className="text-base text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
       </div>
       <div className="h-[10%] flex px-10 items-start justify-center bg-second-color bg-no-repeat bg-cover w-full" style={{backgroundImage:`url(${backgroundLast.src})`}}>
