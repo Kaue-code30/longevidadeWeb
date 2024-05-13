@@ -1,0 +1,62 @@
+{
+	"nome":"Kaue",
+	
+	"email": "kauezinho@texto.com",
+
+    "idade": 19,
+
+    "genero": "Masculino",
+
+    "dataNascimento": "2004-11-30",
+
+    "peso": 80.0,
+
+    "altura": 1.76,
+
+    "pergunta_5": 2,
+
+    "pergunta_6": 3,
+
+    "pergunta_7": 2,
+
+    "pergunta_8": 1,
+
+    "pergunta_10": 3,
+
+    "pergunta_11": 2,
+
+    "pergunta_12": 1,
+
+    "pergunta_13": 2,
+
+    "pergunta_14": 2,
+
+    "pergunta_15": 2,
+
+    "pergunta_16": 3,
+
+    "pergunta_17": 2,
+
+    "pergunta_18": 1,
+
+    "pergunta_19": null,
+
+    "pergunta_20": null,
+
+    "pergunta_21": null,
+
+    "pergunta_22": null,
+
+    "pergunta_23": 2,
+
+    "pergunta_24": 2,
+
+    "pergunta_25": 2,
+
+    "pergunta_26": 2,
+
+    "pergunta_27": 2,
+
+    "pergunta_28": 2
+
+}
