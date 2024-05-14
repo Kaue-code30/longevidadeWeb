@@ -8,7 +8,7 @@ import backgroundLast from "@/assets/home/arvore-verde.png";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Questions from "../questions";
-import content from "@/json/answers.json";
+import content from "@/json/blocos.json";
 
 export default function Home() {
   const [questionsInit, setQuestionsInit] = useState(false);
@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <section className="flex justify-center items-center overflow-y-hidden flex-col w-full h-screen">
       {questionsInit ? (
-        <Questions content={content.PrimeiroBloco} />
+        <Questions  />
       ) : (
         <>
           <motion.div
             initial={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="flex items-center pt-10 px-10 justify-center w-full h-auto"
           >
             <Image
@@ -39,8 +39,8 @@ export default function Home() {
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="w-full h-[70%] gap-6 px-10 flex items-center justify-center flex-col"
           >
             <Image
@@ -64,7 +64,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="text-base text-center"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
+              Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
             </motion.p>
@@ -80,7 +80,8 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="w-full shadow-md flex items-center justify-center gap-2 h-10 bg-third-color rounded-lg text-second-color font-medium -mt-3"
             >
-              começar agora <FaArrowRightLong className="text-xl" />
+              {questionsInit ? "Voltar" : "Começar agora"}{" "}
+              <FaArrowRightLong className="text-xl" />
             </motion.button>
           </div>
         </>

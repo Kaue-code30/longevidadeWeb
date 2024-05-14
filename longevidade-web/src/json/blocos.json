@@ -24,23 +24,8 @@
             "respostas": [
                 {
                     "id_resposta": 1,
-                    "resposta": ">55",
+                    "resposta": "",
                     "valor": 1
-                },
-                {
-                    "id_resposta": 2,
-                    "resposta": "46-55",
-                    "valor": 2
-                },
-                {
-                    "id_resposta": 3,
-                    "resposta": "30-45",
-                    "valor": 3
-                },
-                {
-                    "id_resposta": 4,
-                    "resposta": "<30",
-                    "valor": 4
                 }
             ]
         },

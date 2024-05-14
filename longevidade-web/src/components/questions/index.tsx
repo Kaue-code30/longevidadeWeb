@@ -3,55 +3,98 @@ import HeaderHome from "../header";
 import { useEffect, useState } from "react";
 import heart from "@/assets/home/heart.svg";
 import backgroundLast from "@/assets/home/arvore-verde.png";
-import { QuestionContent } from "@/interfaces/questions";
+import { QuestionContent, QuestionsData } from "@/interfaces/questions";
 import BlockIntermediario from "../blocoIntermediario";
+import JsonQuestions from "@/json/blocos.json";
 
-export default function Questions({ content }: QuestionContent) {
+export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const [blocoAtual, setBlocoAtual] = useState<QuestionsData[]>(
+    JsonQuestions.primeiroBloco
+  );
+
+  const [blocoOne, setBlocoOne] = useState(true);
+  const [blocoTwo, setBlocoTwo] = useState(false);
+  const [blocoThree, setBlocoThree] = useState(false);
+  const [blocoFour, setBlocoFour] = useState(false);
+
+  const alterarBloco = () => {
+    if (blocoTwo) {
+      setCurrentQuestionIndex(0);
+      console.log("UM AQUI");
+
+      setOneBlock(true);
+    } else if (blocoThree) {
+      console.log("DOIS AQUI");
+      setCurrentQuestionIndex(0);
+      setSecondBlock(true);
+    }
+  };
+
   const [oneBlock, setOneBlock] = useState(false);
-  const currentQuestion = content[currentQuestionIndex];
+  const [secondBloc, setSecondBlock] = useState(false);
+  const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
 
-  const handleAnswerClick = (answer: number) => {
-    console.log(answer);
-    
-    setOneBlock(false);
-    if (currentQuestionIndex < content.length - 1) {
+  const handleAnswerClick = (answer: string) => {
+    if (currentQuestionIndex < blocoAtual.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      console.log("Todas as perguntas foram respondidas");
+      if (blocoOne) {
+        console.log("48");
+
+        setBlocoTwo(true);
+      } else if (!blocoOne && !blocoTwo) {
+        console.log("52");
+
+        setBlocoThree(true);
+        setSecondBlock(true);
+      }
+      alterarBloco();
     }
+  };
+
+  useEffect(() => {
+    if (blocoThree) {
+      console.log("olá seu macaco");
+
+      setBlocoAtual(JsonQuestions.terceiroBloco);
+    } else if (blocoTwo) {
+      setBlocoAtual(JsonQuestions.segundoBloco);
+      console.log("olá seu fdp");
+    }
+  }, [oneBlock]);
+
+  const handleHeightInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    let inputValue = event.target.value;
+    inputValue = inputValue.replace(/\D/g, "");
+    inputValue = inputValue.slice(0, 4);
+    if (inputValue.length > 2) {
+      inputValue = `${inputValue.slice(0, 2)}.${inputValue.slice(2)}`;
+    }
+
+    setInputValue(inputValue);
+  };
+
+  const handleInpuWheightChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const sanitizedValue = event.target.value.replace(/\D/g, "");
+    const limitedValue = sanitizedValue.slice(0, 3);
+    setInputValue(limitedValue);
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  const renderInput = () => {
-    if (currentQuestion.descricao.includes("idade")) {
-      return (
-        <input type="date" value={inputValue} onChange={handleInputChange} />
-      );
-    } else if (
-      currentQuestion.descricao.includes("peso") ||
-      currentQuestion.descricao.includes("altura")
-    ) {
-      return (
-        <input type="number" value={inputValue} onChange={handleInputChange} />
-      );
-    } else {
-      return null;
-    }
+  const setBlock = (data: boolean) => {
+    setOneBlock(data);
+    setSecondBlock(data);
   };
-
-  const setBlock = () => {
-    setOneBlock(currentQuestionIndex === 6);
-  };
-  
-  
-  useEffect(() => {
-    setBlock();
-  }, [currentQuestionIndex]);
 
   return (
     <section
@@ -60,10 +103,25 @@ export default function Questions({ content }: QuestionContent) {
     >
       {oneBlock && (
         <BlockIntermediario
-          teste={currentQuestion.id_pergunta}
-          func={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+          arrayQuestions={blocoAtual}
+          banner=""
+          text="Seu IMC é: 23.1"
+          title="Seu IMC é: 23.1"
+          stage={1}
+          setBlock={setBlock}
         />
       )}
+      {secondBloc && (
+        <BlockIntermediario
+          arrayQuestions={blocoAtual}
+          banner=""
+          text="Cu assado"
+          title="Seu IMC é: 23.1"
+          stage={1}
+          setBlock={setBlock}
+        />
+      )}
+
       <HeaderHome backgroundColor="#FFF" />
       <div className="w-full h-full">
         <div className="w-full flex justify-start items-center px-10 h-[10%]">
@@ -83,15 +141,83 @@ export default function Questions({ content }: QuestionContent) {
         <div className="flex flex-col gap-4 w-full px-10 h-full">
           <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
           {currentQuestion.respostas.map((data, index) => (
-            <button
-              key={index}
-              onClick={() => handleAnswerClick(data.valor)}
-              className={`${data.resposta.length > 10 ? "h-16 px-2" : "h-16"} w-full h-10 rounded-lg bg-primary-color text-black`}
-            >
-              {data.resposta}
-            </button>
+            <>
+              {currentQuestion.id_pergunta === 2 ? (
+                <>
+                  <input
+                    type="date"
+                    required={true}
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    className="border-b-[1px] border-[#D1D5DB] bg-[#0000] h-10"
+                  />
+                  <button
+                    onClick={() => handleAnswerClick(inputValue)}
+                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                      !inputValue && "opacity-50 cursor-not-allowed"
+                    }`}
+                    disabled={!inputValue}
+                  >
+                    confirmar
+                  </button>
+                </>
+              ) : currentQuestion.id_pergunta === 3 ? (
+                <>
+                  <input
+                    type="number"
+                    required={true}
+                    value={inputValue}
+                    onChange={handleHeightInputChange}
+                    placeholder="00,00 Mt"
+                    className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
+                  />
+                  <button
+                    onClick={() => handleAnswerClick(inputValue)}
+                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                      !inputValue && "opacity-50 cursor-not-allowed"
+                    }`}
+                    disabled={!inputValue}
+                  >
+                    confirmar
+                  </button>
+                </>
+              ) : currentQuestion.id_pergunta === 4 ? (
+                <>
+                  <input
+                    type="number"
+                    required={true}
+                    value={inputValue}
+                    onChange={handleInpuWheightChange}
+                    placeholder="85 Kg"
+                    maxLength={3}
+                    size={3}
+                    className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
+                  />
+
+                  <button
+                    onClick={() => handleAnswerClick(inputValue)}
+                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                      !inputValue && "opacity-50 cursor-not-allowed"
+                    }`}
+                    disabled={!inputValue}
+                  >
+                    confirmar
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="submit"
+                  key={index}
+                  onClick={() => handleAnswerClick(data.valor.toString())}
+                  className={`${
+                    data.resposta.length > 10 ? "h-16 px-2" : "h-16"
+                  } w-full h-10 rounded-lg bg-primary-color text-black`}
+                >
+                  {data.resposta}
+                </button>
+              )}
+            </>
           ))}
-          {renderInput()}
         </div>
       </div>
     </section>
