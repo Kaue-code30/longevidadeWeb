@@ -22,18 +22,20 @@ export default function Questions() {
   const alterarBloco = () => {
     if (blocoTwo) {
       setCurrentQuestionIndex(0);
-      console.log("UM AQUI");
-
       setOneBlock(true);
     } else if (blocoThree) {
-      console.log("DOIS AQUI");
       setCurrentQuestionIndex(0);
       setSecondBlock(true);
+    } else if (blocoThree) {
+      setCurrentQuestionIndex(0);
+      setThirdBlock(true);
     }
   };
 
   const [oneBlock, setOneBlock] = useState(false);
   const [secondBloc, setSecondBlock] = useState(false);
+  const [thirdBlco, setThirdBlock] = useState(false);
+
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
 
@@ -42,29 +44,31 @@ export default function Questions() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       if (blocoOne) {
-        console.log("48");
-
-        setBlocoTwo(true);
-      } else if (!blocoOne && !blocoTwo) {
-        console.log("52");
-
-        setBlocoThree(true);
+        setOneBlock(true);
+        setBlocoOne(false); // desativa blocoOne
+        setBlocoTwo(true); // ativa blocoTwo
+      } else if (blocoTwo) {
         setSecondBlock(true);
+        setBlocoTwo(false); // desativa blocoTwo
+        setBlocoThree(true); // ativa blocoThree
+      } else if (blocoThree) {
+        setThirdBlock(true);
+        setBlocoThree(false);
+        setBlocoFour(true);
       }
-      alterarBloco();
+      setCurrentQuestionIndex(0);
     }
   };
 
   useEffect(() => {
-    if (blocoThree) {
-      console.log("olá seu macaco");
-
+    if (blocoFour) {
+      setBlocoAtual(JsonQuestions.quartoBloco);
+    } else if (blocoThree) {
       setBlocoAtual(JsonQuestions.terceiroBloco);
     } else if (blocoTwo) {
       setBlocoAtual(JsonQuestions.segundoBloco);
-      console.log("olá seu fdp");
     }
-  }, [oneBlock]);
+  }, [blocoTwo, blocoThree]);
 
   const handleHeightInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -94,6 +98,7 @@ export default function Questions() {
   const setBlock = (data: boolean) => {
     setOneBlock(data);
     setSecondBlock(data);
+    setThirdBlock(data);
   };
 
   return (
@@ -116,6 +121,16 @@ export default function Questions() {
           arrayQuestions={blocoAtual}
           banner=""
           text="Cu assado"
+          title="Seu IMC é: 23.1"
+          stage={1}
+          setBlock={setBlock}
+        />
+      )}
+      {thirdBlco && (
+        <BlockIntermediario
+          arrayQuestions={blocoAtual}
+          banner=""
+          text="Cu do cleiton ta assado"
           title="Seu IMC é: 23.1"
           stage={1}
           setBlock={setBlock}
