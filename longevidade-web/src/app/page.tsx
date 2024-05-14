@@ -1,12 +1,12 @@
-import Image from "next/image";
+"use client";
 
-import Questionario from "@/components/questionario";
+import BlockIntermediario from "@/components/blocoIntermediario";
 import Home from "@/components/home";
 
 export default function App() {
   return (
     <main className="flex flex-col bg-primary-color  items-center ">
-      <Home/>
+      <Home />
     </main>
   );
 }
