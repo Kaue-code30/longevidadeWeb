@@ -3,7 +3,7 @@ export interface Userdata {
 
     email: string,
 
-    idade: 19,
+    idade: number,
 
     genero: string,
 

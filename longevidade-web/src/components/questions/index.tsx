@@ -18,23 +18,13 @@ export default function Questions() {
   const [blocoTwo, setBlocoTwo] = useState(false);
   const [blocoThree, setBlocoThree] = useState(false);
   const [blocoFour, setBlocoFour] = useState(false);
+  const [blocoFive, setBlocoFive] = useState(false);
 
-  const alterarBloco = () => {
-    if (blocoTwo) {
-      setCurrentQuestionIndex(0);
-      setOneBlock(true);
-    } else if (blocoThree) {
-      setCurrentQuestionIndex(0);
-      setSecondBlock(true);
-    } else if (blocoThree) {
-      setCurrentQuestionIndex(0);
-      setThirdBlock(true);
-    }
-  };
 
   const [oneBlock, setOneBlock] = useState(false);
   const [secondBloc, setSecondBlock] = useState(false);
   const [thirdBlco, setThirdBlock] = useState(false);
+  const [fourthBlco, setFourthBlock] = useState(false);
 
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
@@ -55,20 +45,30 @@ export default function Questions() {
         setThirdBlock(true);
         setBlocoThree(false);
         setBlocoFour(true);
+      } else if (blocoFour) {
+        setFourthBlock(true);
+        setBlocoFour(false);
+        setBlocoFive(true);
       }
       setCurrentQuestionIndex(0);
     }
   };
 
+  console.log(blocoAtual);
+
+  console.log(blocoFive, blocoFour);
+
   useEffect(() => {
-    if (blocoFour) {
+    if (blocoFive) {
+      setBlocoAtual(JsonQuestions.quintoBloco);
+    } else if (blocoFour) {
       setBlocoAtual(JsonQuestions.quartoBloco);
     } else if (blocoThree) {
       setBlocoAtual(JsonQuestions.terceiroBloco);
     } else if (blocoTwo) {
       setBlocoAtual(JsonQuestions.segundoBloco);
     }
-  }, [blocoTwo, blocoThree]);
+  }, [blocoTwo, blocoThree, blocoFour]);
 
   const handleHeightInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -99,6 +99,7 @@ export default function Questions() {
     setOneBlock(data);
     setSecondBlock(data);
     setThirdBlock(data);
+    setFourthBlock(data);
   };
 
   return (
@@ -122,7 +123,7 @@ export default function Questions() {
           banner=""
           text="Cu assado"
           title="Seu IMC é: 23.1"
-          stage={1}
+          stage={2}
           setBlock={setBlock}
         />
       )}
@@ -132,7 +133,17 @@ export default function Questions() {
           banner=""
           text="Cu do cleiton ta assado"
           title="Seu IMC é: 23.1"
-          stage={1}
+          stage={3}
+          setBlock={setBlock}
+        />
+      )}
+      {fourthBlco && (
+        <BlockIntermediario
+          arrayQuestions={blocoAtual}
+          banner=""
+          text="Quarto bloco"
+          title="Seu IMC é: 23.1"
+          stage={4}
           setBlock={setBlock}
         />
       )}
@@ -157,7 +168,9 @@ export default function Questions() {
           <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
           {currentQuestion.respostas.map((data, index) => (
             <>
-              {currentQuestion.id_pergunta === 2 ? (
+              {currentQuestion.descricao.startsWith(
+                "Qual sua data de nascimento?"
+              ) ? (
                 <>
                   <input
                     type="date"
@@ -176,7 +189,9 @@ export default function Questions() {
                     confirmar
                   </button>
                 </>
-              ) : currentQuestion.id_pergunta === 3 ? (
+              ) : currentQuestion.descricao.startsWith(
+                  "Qual sua altura (em metros)?"
+                ) ? (
                 <>
                   <input
                     type="number"
@@ -196,7 +211,9 @@ export default function Questions() {
                     confirmar
                   </button>
                 </>
-              ) : currentQuestion.id_pergunta === 4 ? (
+              ) : currentQuestion.descricao.startsWith(
+                  "Quanto você acredita que pesa atualmente(em kg)?"
+                ) ? (
                 <>
                   <input
                     type="number"

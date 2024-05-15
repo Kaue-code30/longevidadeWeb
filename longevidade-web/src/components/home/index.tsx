@@ -8,7 +8,6 @@ import backgroundLast from "@/assets/home/arvore-verde.png";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Questions from "../questions";
-import content from "@/json/blocos.json";
 
 export default function Home() {
   const [questionsInit, setQuestionsInit] = useState(false);
