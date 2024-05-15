@@ -105,7 +105,7 @@ export default function Questions() {
   return (
     <section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
-      className="h-screen bg-no-repeat bg-contain bg-bottom w-full bg-second-color"
+      className="h-full bg-no-repeat bg-contain bg-bottom w-full bg-second-color"
     >
       {oneBlock && (
         <BlockIntermediario
