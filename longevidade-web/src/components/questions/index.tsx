@@ -3,33 +3,46 @@ import HeaderHome from "../header";
 import { useEffect, useState } from "react";
 import heart from "@/assets/home/heart.svg";
 import backgroundLast from "@/assets/home/arvore-verde.png";
-import { QuestionContent, QuestionsData } from "@/interfaces/questions";
+import { QuestionsData } from "@/interfaces/questions";
 import BlockIntermediario from "../blocoIntermediario";
 import JsonQuestions from "@/json/blocos.json";
+import bannerOneBlock from "@/assets/BlocoIntermediario/oneBlock.png";
+import bannerTwoBlock from "@/assets/home/gymImage.png";
+import bannerThreeBlock from "@/assets/BlocoIntermediario/thirdBlock.png";
+import bannerFour from "@/assets/BlocoIntermediario/fourthBlock.png";
+import { Userdata } from "@/interfaces/userData";
+import { answersData } from "@/interfaces/answer";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
   const [blocoAtual, setBlocoAtual] = useState<QuestionsData[]>(
     JsonQuestions.primeiroBloco
   );
-
   const [blocoOne, setBlocoOne] = useState(true);
   const [blocoTwo, setBlocoTwo] = useState(false);
   const [blocoThree, setBlocoThree] = useState(false);
   const [blocoFour, setBlocoFour] = useState(false);
   const [blocoFive, setBlocoFive] = useState(false);
-
-
   const [oneBlock, setOneBlock] = useState(false);
   const [secondBloc, setSecondBlock] = useState(false);
   const [thirdBlco, setThirdBlock] = useState(false);
   const [fourthBlco, setFourthBlock] = useState(false);
-
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
+  const [inputValueAltura, setInputValueAltura] = useState("");
+  const [inputValuePeso, setInputValuePeso] = useState("");
 
-  const handleAnswerClick = (answer: string) => {
+  const [userData, setUserData] = useState<Userdata>({});
+
+  console.log(userData);
+
+  const handleAnswerClick = ({
+    answerNumber,
+    answer,
+    numberQuestion,
+  }: answersData) => {
+    verifiedAnswers({ answerNumber, answer, numberQuestion });
+
     if (currentQuestionIndex < blocoAtual.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -54,10 +67,6 @@ export default function Questions() {
     }
   };
 
-  console.log(blocoAtual);
-
-  console.log(blocoFive, blocoFour);
-
   useEffect(() => {
     if (blocoFive) {
       setBlocoAtual(JsonQuestions.quintoBloco);
@@ -74,21 +83,104 @@ export default function Questions() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     let inputValue = event.target.value;
-    inputValue = inputValue.replace(/\D/g, "");
-    inputValue = inputValue.slice(0, 4);
-    if (inputValue.length > 2) {
-      inputValue = `${inputValue.slice(0, 2)}.${inputValue.slice(2)}`;
+
+    inputValue = inputValue.replace(/[^\d.]/g, "");
+    const [integerPart, decimalPart] = inputValue.split(".");
+
+    let formattedIntegerPart = integerPart.slice(0, 1)
+
+    let formattedDecimalPart = decimalPart ? decimalPart.slice(0, 2) : ""
+
+
+    if (formattedDecimalPart) {
+      formattedDecimalPart = "." + formattedDecimalPart;
     }
 
-    setInputValue(inputValue);
+
+    setInputValueAltura(formattedIntegerPart + formattedDecimalPart);
   };
 
-  const handleInpuWheightChange = (
+  const handleWheigthInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const sanitizedValue = event.target.value.replace(/\D/g, "");
-    const limitedValue = sanitizedValue.slice(0, 3);
-    setInputValue(limitedValue);
+    let inputValue = event.target.value;
+    inputValue = inputValue.replace(/\D/g, "");
+    inputValue = inputValue.slice(0, 3);
+
+    setInputValuePeso(inputValue);
+  };
+
+  const verifiedAnswers = ({
+    answerNumber,
+    answer,
+    numberQuestion,
+  }: answersData) => {
+    const updatedUserData: Userdata = { ...userData };
+
+    switch (numberQuestion) {
+      case 1:
+        updatedUserData.genero = answer;
+        break;
+      case 2:
+        updatedUserData.idade = answerNumber;
+      case 3:
+        updatedUserData.altura = Number(answerNumber);
+      case 4:
+        updatedUserData.peso = Number(answerNumber);
+      case 5:
+        updatedUserData.pergunta_5 = parseInt(answerNumber);
+      case 6:
+        updatedUserData.pergunta_6 = parseInt(answerNumber);
+      case 7:
+        updatedUserData.pergunta_7 = parseInt(answerNumber);
+      case 8:
+        updatedUserData.pergunta_8 = parseInt(answerNumber);
+      case 9:
+        if (updatedUserData.peso && updatedUserData.altura) {
+          updatedUserData.pergunta_9 =
+            updatedUserData.peso / (updatedUserData.altura * 2);
+        }
+      case 10:
+        updatedUserData.pergunta_10 = parseInt(answerNumber);
+      case 11:
+        updatedUserData.pergunta_11 = parseInt(answerNumber);
+      case 12:
+        updatedUserData.pergunta_12 = parseInt(answerNumber);
+      case 13:
+        updatedUserData.pergunta_13 = parseInt(answerNumber);
+      case 14:
+        updatedUserData.pergunta_14 = parseInt(answerNumber);
+      case 15:
+        updatedUserData.pergunta_15 = parseInt(answerNumber);
+      case 16:
+        updatedUserData.pergunta_16 = parseInt(answerNumber);
+      case 17:
+        updatedUserData.pergunta_17 = parseInt(answerNumber);
+      case 18:
+        updatedUserData.pergunta_18 = parseInt(answerNumber);
+      case 19:
+        updatedUserData.pergunta_19 = parseInt(answerNumber);
+      case 20:
+        updatedUserData.pergunta_20 = parseInt(answerNumber);
+      case 21:
+        updatedUserData.pergunta_21 = parseInt(answerNumber);
+      case 22:
+        updatedUserData.pergunta_22 = parseInt(answerNumber);
+      case 23:
+        updatedUserData.pergunta_23 = parseInt(answerNumber);
+      case 24:
+        updatedUserData.pergunta_24 = parseInt(answerNumber);
+      case 25:
+        updatedUserData.pergunta_25 = parseInt(answerNumber);
+      case 26:
+        updatedUserData.pergunta_26 = parseInt(answerNumber);
+      case 27:
+        updatedUserData.pergunta_27 = parseInt(answerNumber);
+      default:
+        break;
+    }
+
+    setUserData(updatedUserData);
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -110,7 +202,7 @@ export default function Questions() {
       {oneBlock && (
         <BlockIntermediario
           arrayQuestions={blocoAtual}
-          banner=""
+          banner={bannerOneBlock.src}
           text="Seu IMC é: 23.1"
           title="Seu IMC é: 23.1"
           stage={1}
@@ -120,7 +212,7 @@ export default function Questions() {
       {secondBloc && (
         <BlockIntermediario
           arrayQuestions={blocoAtual}
-          banner=""
+          banner={bannerTwoBlock.src}
           text="Cu assado"
           title="Seu IMC é: 23.1"
           stage={2}
@@ -130,7 +222,7 @@ export default function Questions() {
       {thirdBlco && (
         <BlockIntermediario
           arrayQuestions={blocoAtual}
-          banner=""
+          banner={bannerThreeBlock.src}
           text="Cu do cleiton ta assado"
           title="Seu IMC é: 23.1"
           stage={3}
@@ -140,7 +232,7 @@ export default function Questions() {
       {fourthBlco && (
         <BlockIntermediario
           arrayQuestions={blocoAtual}
-          banner=""
+          banner={bannerFour.src}
           text="Quarto bloco"
           title="Seu IMC é: 23.1"
           stage={4}
@@ -180,7 +272,12 @@ export default function Questions() {
                     className="border-b-[1px] border-[#D1D5DB] bg-[#0000] h-10"
                   />
                   <button
-                    onClick={() => handleAnswerClick(inputValue)}
+                    onClick={() =>
+                      handleAnswerClick({
+                        answerNumber: inputValue,
+                        numberQuestion: currentQuestion.pergunta,
+                      })
+                    }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
                       !inputValue && "opacity-50 cursor-not-allowed"
                     }`}
@@ -196,13 +293,18 @@ export default function Questions() {
                   <input
                     type="number"
                     required={true}
-                    value={inputValue}
+                    value={inputValueAltura}
                     onChange={handleHeightInputChange}
                     placeholder="00,00 Mt"
                     className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
                   />
                   <button
-                    onClick={() => handleAnswerClick(inputValue)}
+                    onClick={() =>
+                      handleAnswerClick({
+                        answerNumber: inputValue,
+                        numberQuestion: currentQuestion.pergunta,
+                      })
+                    }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
                       !inputValue && "opacity-50 cursor-not-allowed"
                     }`}
@@ -218,8 +320,8 @@ export default function Questions() {
                   <input
                     type="number"
                     required={true}
-                    value={inputValue}
-                    onChange={handleInpuWheightChange}
+                    value={inputValuePeso}
+                    onChange={handleWheigthInputChange}
                     placeholder="85 Kg"
                     maxLength={3}
                     size={3}
@@ -227,7 +329,12 @@ export default function Questions() {
                   />
 
                   <button
-                    onClick={() => handleAnswerClick(inputValue)}
+                    onClick={() =>
+                      handleAnswerClick({
+                        answerNumber: inputValue,
+                        numberQuestion: currentQuestion.pergunta,
+                      })
+                    }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
                       !inputValue && "opacity-50 cursor-not-allowed"
                     }`}
@@ -240,7 +347,13 @@ export default function Questions() {
                 <button
                   type="submit"
                   key={index}
-                  onClick={() => handleAnswerClick(data.valor.toString())}
+                  onClick={() =>
+                    handleAnswerClick({
+                      answerNumber: data.valor.toString(),
+                      answer: data.resposta,
+                      numberQuestion: currentQuestion.pergunta,
+                    })
+                  }
                   className={`${
                     data.resposta.length > 10 ? "h-16 px-2" : "h-16"
                   } w-full h-10 rounded-lg bg-primary-color text-black`}

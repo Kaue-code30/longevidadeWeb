@@ -1,6 +1,6 @@
 export interface QuestionsData {
     id_pergunta: number;
-    pergunta: string;
+    pergunta: number;
     descricao: string;
     respostas: {
         id_resposta: number;

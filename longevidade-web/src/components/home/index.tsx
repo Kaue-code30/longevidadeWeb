@@ -17,9 +17,9 @@ export default function Home() {
   };
 
   return (
-    <section className="flex justify-center items-center overflow-y-hidden flex-col w-full h-screen">
+    <section className="flex justify-center items-center flex-col w-full h-screen">
       {questionsInit ? (
-        <Questions  />
+        <Questions />
       ) : (
         <>
           <motion.div
