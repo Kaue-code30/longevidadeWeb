@@ -40,13 +40,13 @@ export interface Userdata {
 
     pergunta_18?: number,
 
-    pergunta_19?: number,
+    pergunta_19?: number | null,
 
-    pergunta_20?: number,
+    pergunta_20?: number | null,
 
-    pergunta_21?: number,
+    pergunta_21?: number | null,
 
-    pergunta_22?: number,
+    pergunta_22?: number | null,
 
     pergunta_23?: number,
 

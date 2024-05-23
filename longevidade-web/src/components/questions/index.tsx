@@ -12,6 +12,8 @@ import bannerThreeBlock from "@/assets/BlocoIntermediario/thirdBlock.png";
 import bannerFour from "@/assets/BlocoIntermediario/fourthBlock.png";
 import { Userdata } from "@/interfaces/userData";
 import { answersData } from "@/interfaces/answer";
+import { motion } from "framer-motion";
+
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -29,21 +31,51 @@ export default function Questions() {
   const [fourthBlco, setFourthBlock] = useState(false);
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
-  const [inputValueAltura, setInputValueAltura] = useState("");
-  const [inputValuePeso, setInputValuePeso] = useState("");
+  const [inputValueAltura, setInputValueAltura] = useState(Number);
+
+  const [inputValuePeso, setInputValuePeso] = useState(Number);
 
   const [userData, setUserData] = useState<Userdata>({});
 
-  console.log(userData);
+  const calculateAge = (birthdate: any) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
 
   const handleAnswerClick = ({
     answerNumber,
     answer,
     numberQuestion,
+    perguntaNumber,
   }: answersData) => {
-    verifiedAnswers({ answerNumber, answer, numberQuestion });
+    verifiedAnswers({ answerNumber, answer, numberQuestion, perguntaNumber });
 
-    if (currentQuestionIndex < blocoAtual.length - 1) {
+    if (perguntaNumber === 21 && calculateAge(userData.idade) < 40) {
+      setFourthBlock(true);
+      setBlocoFour(false);
+      setBlocoFive(true);
+      setCurrentQuestionIndex(0);
+    } else if (
+      perguntaNumber === 20 &&
+      calculateAge(userData.idade) >= 45 &&
+      userData.genero === "Masculino"
+    ) {
+      setFourthBlock(true);
+      setBlocoFour(false);
+      setBlocoFive(true);
+      setCurrentQuestionIndex(0);
+    } else if (currentQuestionIndex < blocoAtual.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       if (blocoOne) {
@@ -55,15 +87,36 @@ export default function Questions() {
         setBlocoTwo(false); // desativa blocoTwo
         setBlocoThree(true); // ativa blocoThree
       } else if (blocoThree) {
-        setThirdBlock(true);
-        setBlocoThree(false);
-        setBlocoFour(true);
+        if (
+          perguntaNumber === 24 &&
+          calculateAge(userData.idade) < 45 &&
+          userData.genero === "Masculino"
+        ) {
+          setThirdBlock(true);
+          setBlocoThree(false);
+          setBlocoFive(true);
+        } else {
+          setThirdBlock(true);
+          setBlocoThree(false);
+          setBlocoFour(true);
+        }
       } else if (blocoFour) {
         setFourthBlock(true);
         setBlocoFour(false);
         setBlocoFive(true);
       }
-      setCurrentQuestionIndex(0);
+
+      if (
+        perguntaNumber === 24 &&
+        userData.genero === "Feminino" &&
+        calculateAge(userData.idade) >= 15
+      ) {
+        setCurrentQuestionIndex(2);
+      } else if (perguntaNumber === 21 && calculateAge(userData.idade) >= 40) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      } else {
+        setCurrentQuestionIndex(0);
+      }
     }
   };
 
@@ -84,36 +137,49 @@ export default function Questions() {
   ) => {
     let inputValue = event.target.value;
 
+    // Remover caracteres que não sejam dígitos ou ponto decimal
     inputValue = inputValue.replace(/[^\d.]/g, "");
+
+    // Dividir a parte inteira e decimal
     const [integerPart, decimalPart] = inputValue.split(".");
 
-    let formattedIntegerPart = integerPart.slice(0, 1)
+    // Limitar a parte inteira a dois dígitos
+    let formattedIntegerPart = integerPart.slice(0, 2);
 
-    let formattedDecimalPart = decimalPart ? decimalPart.slice(0, 2) : ""
+    // Adicionar zeros à parte decimal se necessário para garantir dois dígitos
+    let formattedDecimalPart = decimalPart
+      ? decimalPart.padEnd(2, "0").slice(0, 2)
+      : "00";
 
-
-    if (formattedDecimalPart) {
+    // Se houver parte decimal, adicionar o ponto decimal
+    if (formattedDecimalPart !== "00") {
       formattedDecimalPart = "." + formattedDecimalPart;
+    } else {
+      formattedDecimalPart = "";
     }
 
+    // Montar o valor formatado
+    const formattedValue = formattedIntegerPart + formattedDecimalPart;
 
-    setInputValueAltura(formattedIntegerPart + formattedDecimalPart);
+    // Definir o valor formatado no estado ou realizar outra ação, como atualização de estado
+    setInputValueAltura(Number(formattedValue));
   };
 
   const handleWheigthInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     let inputValue = event.target.value;
-    inputValue = inputValue.replace(/\D/g, "");
-    inputValue = inputValue.slice(0, 3);
 
-    setInputValuePeso(inputValue);
+    inputValue = inputValue.replace(/[^\d.]/g, "");
+
+    setInputValuePeso(Number(inputValue));
   };
 
   const verifiedAnswers = ({
     answerNumber,
     answer,
     numberQuestion,
+    perguntaNumber,
   }: answersData) => {
     const updatedUserData: Userdata = { ...userData };
 
@@ -124,9 +190,9 @@ export default function Questions() {
       case 2:
         updatedUserData.idade = answerNumber;
       case 3:
-        updatedUserData.altura = Number(answerNumber);
+        updatedUserData.altura = inputValueAltura;
       case 4:
-        updatedUserData.peso = Number(answerNumber);
+        updatedUserData.peso = inputValuePeso;
       case 5:
         updatedUserData.pergunta_5 = parseInt(answerNumber);
       case 6:
@@ -159,13 +225,30 @@ export default function Questions() {
       case 18:
         updatedUserData.pergunta_18 = parseInt(answerNumber);
       case 19:
-        updatedUserData.pergunta_19 = parseInt(answerNumber);
+        if (perguntaNumber === 19) {
+          updatedUserData.pergunta_19 = parseInt(answerNumber);
+        } else {
+          updatedUserData.pergunta_19 = null;
+        }
+
       case 20:
-        updatedUserData.pergunta_20 = parseInt(answerNumber);
+        if (perguntaNumber === 20) {
+          updatedUserData.pergunta_20 = parseInt(answerNumber);
+        } else {
+          updatedUserData.pergunta_20 = null;
+        }
       case 21:
-        updatedUserData.pergunta_21 = parseInt(answerNumber);
+        if (perguntaNumber === 21) {
+          updatedUserData.pergunta_21 = parseInt(answerNumber);
+        } else {
+          updatedUserData.pergunta_21 = null;
+        }
       case 22:
-        updatedUserData.pergunta_22 = parseInt(answerNumber);
+        if (perguntaNumber === 22) {
+          updatedUserData.pergunta_22 = parseInt(answerNumber);
+        } else {
+          updatedUserData.pergunta_22 = null;
+        }
       case 23:
         updatedUserData.pergunta_23 = parseInt(answerNumber);
       case 24:
@@ -194,8 +277,10 @@ export default function Questions() {
     setFourthBlock(data);
   };
 
+
+
   return (
-    <section
+    <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
       className="h-full bg-no-repeat bg-contain bg-bottom w-full bg-second-color"
     >
@@ -204,7 +289,7 @@ export default function Questions() {
           arrayQuestions={blocoAtual}
           banner={bannerOneBlock.src}
           text="Seu IMC é: 23.1"
-          title="Seu IMC é: 23.1"
+          title="Seu IMC é: "
           stage={1}
           setBlock={setBlock}
         />
@@ -245,7 +330,7 @@ export default function Questions() {
         <div className="w-full flex justify-start items-center px-10 h-[10%]">
           <div className="w-16 h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
             <h1 className="text-2xl font-black">
-              {currentQuestion.id_pergunta}
+              {currentQuestion && currentQuestion.id_pergunta}
             </h1>
             <Image
               className={`absolute w-16 ml-24 ${oneBlock ? "hidden" : "flex"}`}
@@ -265,6 +350,7 @@ export default function Questions() {
               ) ? (
                 <>
                   <input
+                    key={index}
                     type="date"
                     required={true}
                     value={inputValue}
@@ -276,6 +362,7 @@ export default function Questions() {
                       handleAnswerClick({
                         answerNumber: inputValue,
                         numberQuestion: currentQuestion.pergunta,
+                        perguntaNumber: currentQuestion.pergunta,
                       })
                     }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
@@ -303,6 +390,7 @@ export default function Questions() {
                       handleAnswerClick({
                         answerNumber: inputValue,
                         numberQuestion: currentQuestion.pergunta,
+                        perguntaNumber: currentQuestion.pergunta,
                       })
                     }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
@@ -333,6 +421,7 @@ export default function Questions() {
                       handleAnswerClick({
                         answerNumber: inputValue,
                         numberQuestion: currentQuestion.pergunta,
+                        perguntaNumber: currentQuestion.pergunta,
                       })
                     }
                     className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
@@ -352,6 +441,7 @@ export default function Questions() {
                       answerNumber: data.valor.toString(),
                       answer: data.resposta,
                       numberQuestion: currentQuestion.pergunta,
+                      perguntaNumber: currentQuestion.pergunta,
                     })
                   }
                   className={`${
@@ -365,6 +455,6 @@ export default function Questions() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

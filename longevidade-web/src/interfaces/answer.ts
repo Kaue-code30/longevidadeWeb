@@ -1,5 +1,6 @@
 export interface answersData{
     answerNumber: string,
     answer?:string,
-    numberQuestion: number
+    numberQuestion: number,
+    perguntaNumber: number
 }

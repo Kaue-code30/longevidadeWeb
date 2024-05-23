@@ -160,7 +160,7 @@
   "segundoBloco": [
     {
       "id_pergunta": 1,
-      "pergunta": 9,
+      "pergunta": 10,
       "descricao": "Você fuma ou fumou nos últimos 5 anos?",
       "respostas": [
         {
@@ -187,7 +187,7 @@
     },
     {
       "id_pergunta": 2,
-      "pergunta": 10,
+      "pergunta": 11,
       "descricao": "Você costuma tomar bebida alcoólica? (1 dose = 1 copo de vinho ou de cerveja)",
       "respostas": [
         {
@@ -214,7 +214,7 @@
     },
     {
       "id_pergunta": 3,
-      "pergunta": 11,
+      "pergunta": 12,
       "descricao": "Quanto de açúcar você consome aproximadamente?",
       "respostas": [
         {
@@ -241,7 +241,7 @@
     },
     {
       "id_pergunta": 4,
-      "pergunta": 12,
+      "pergunta": 13,
       "descricao": "Qual quantidade de agua você costuma beber por dia?",
       "respostas": [
         {
@@ -268,7 +268,7 @@
     },
     {
       "id_pergunta": 5,
-      "pergunta": 13,
+      "pergunta": 14,
       "descricao": "Quanto de proteína você consome por dia em média (aproximadamente)?",
       "respostas": [
         {
@@ -295,7 +295,7 @@
     },
     {
       "id_pergunta": 6,
-      "pergunta": 14,
+      "pergunta": 15,
       "descricao": "Quantas vezes por semana, você consome alimentos ultraprocessados ou industrializados (comida pronta no mercado, que vem em sacos ou congelada, fastfood, salgadinhos, presuntos e afins)?",
       "respostas": [
         {
@@ -324,7 +324,7 @@
   "terceiroBloco": [
     {
       "id_pergunta": 1,
-      "pergunta": 15,
+      "pergunta": 16,
       "descricao": "Quantas vezes por semana você faz musculação?",
       "respostas": [
         {
@@ -351,7 +351,7 @@
     },
     {
       "id_pergunta": 2,
-      "pergunta": 16,
+      "pergunta": 17,
       "descricao": "Como está sua autonomia para levantar do chão, considerando que você está sentado no chão?",
       "respostas": [
         {
@@ -378,7 +378,7 @@
     },
     {
       "id_pergunta": 3,
-      "pergunta": 17,
+      "pergunta": 18,
       "descricao": "Quantas vezes por semana você faz atividade aeróbica, como caminhada, corrida ou andar de bicicleta?",
       "respostas": [
         {
@@ -405,7 +405,7 @@
     },
     {
       "id_pergunta": 4,
-      "pergunta": 18,
+      "pergunta": 23,
       "descricao": "Quantas horas você costuma dormir por noite?",
       "respostas": [
         {
@@ -432,7 +432,7 @@
     },
     {
       "id_pergunta": 5,
-      "pergunta": 19,
+      "pergunta": 24,
       "descricao": "Qual sua sensação de descanso ao longo do dia?",
       "respostas": [
         {
@@ -461,7 +461,7 @@
   "quartoBloco": [
     {
       "id_pergunta": 1,
-      "pergunta": 20,
+      "pergunta": 19,
       "descricao": "Quando você fez seu último preventivo para câncer de intestino, como o exame de colonoscopia ou pesquisa de sangue oculto nas fezes?",
       "respostas": [
         {
@@ -488,7 +488,7 @@
     },
     {
       "id_pergunta": 2,
-      "pergunta": 21,
+      "pergunta": 20,
       "descricao": "Quando você fez seu último exame preventivo para câncer da próstata, como exame médico, ultrassonografia de próstata ou PSA sanguíneo?",
       "respostas": [
         {
@@ -515,7 +515,7 @@
     },
     {
       "id_pergunta": 3,
-      "pergunta": 22,
+      "pergunta": 21,
       "descricao": "Quando você fez seu último preventivo para câncer de útero, como exame médico ginecológico com Papanicolau (colpocitologia oncológica)?",
       "respostas": [
         {
@@ -542,7 +542,7 @@
     },
     {
       "id_pergunta": 4,
-      "pergunta": 23,
+      "pergunta": 22,
       "descricao": "Quando você fez seu último preventivo para câncer de mama, como mamografia?",
       "respostas": [
         {
@@ -571,7 +571,7 @@
   "quintoBloco": [
     {
       "id_pergunta": 1,
-      "pergunta": 24,
+      "pergunta": 25,
       "descricao": "Você tem clareza sobre os seus objetivos e propósito de vida?",
       "respostas": [
         {
@@ -598,7 +598,7 @@
     },
     {
       "id_pergunta": 2,
-      "pergunta": 25,
+      "pergunta": 26,
       "descricao": "Você tem o sentimento de pertencimento a algum grupo fora do trabalho ou família (hobby, igreja, amigos ou esporte)?",
       "respostas": [
         {
@@ -625,7 +625,7 @@
     },
     {
       "id_pergunta": 3,
-      "pergunta": 26,
+      "pergunta": 27,
       "descricao": "Você considera que tem relacionamentos que realmente importam para você?",
       "respostas": [
         {
@@ -652,7 +652,7 @@
     },
     {
       "id_pergunta":4,
-      "pergunta": 27,
+      "pergunta": 28,
       "descricao": "Como você normalmente reage a algum evento de estresse?",
       "respostas": [
         {
