@@ -60,3 +60,4 @@ export interface Userdata {
 
     pergunta_28?: number,
 };
+

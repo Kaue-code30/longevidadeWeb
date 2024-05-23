@@ -13,7 +13,7 @@ import bannerFour from "@/assets/BlocoIntermediario/fourthBlock.png";
 import { Userdata } from "@/interfaces/userData";
 import { answersData } from "@/interfaces/answer";
 import { motion } from "framer-motion";
-
+import BlockEncerramento from "../blocoEncerramento";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -32,10 +32,43 @@ export default function Questions() {
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
   const [inputValueAltura, setInputValueAltura] = useState(Number);
-
   const [inputValuePeso, setInputValuePeso] = useState(Number);
-
   const [userData, setUserData] = useState<Userdata>({});
+  const [finshe, setFinshe] = useState(false)
+
+  const calculateImc = () => {
+    const peso = userData.peso;
+    const altura = userData.altura;
+    const imc = peso && altura ? peso / (altura * altura) : 0;
+    let result;
+    if (imc < 18.5) {
+      result = {
+        imc: imc.toFixed(2),
+        descricao: "Magreza",
+      };
+    } else if (imc > 18.5 || imc <= 24.9) {
+      result = {
+        imc: imc.toFixed(2),
+        descricao: "Normal",
+      };
+    } else if (imc > 24.9 || imc <= 29.9) {
+      result = {
+        imc: imc.toFixed(2),
+        descricao: "Sobrepeso",
+      };
+    } else if (imc > 29.9 || imc <= 39.9) {
+      result = {
+        imc: imc.toFixed(2),
+        descricao: "Obesidade",
+      };
+    } else if (imc > 39.9) {
+      result = {
+        imc: imc.toFixed(2),
+        descricao: "Obesidade grave",
+      };
+    }
+    return result;
+  };
 
   const calculateAge = (birthdate: any) => {
     const today = new Date();
@@ -104,6 +137,12 @@ export default function Questions() {
         setFourthBlock(true);
         setBlocoFour(false);
         setBlocoFive(true);
+      }
+       else if (blocoFive) {
+        setFourthBlock(false);
+        setBlocoFour(false);
+        setBlocoFive(false);
+        setFinshe(true)
       }
 
       if (
@@ -277,8 +316,6 @@ export default function Questions() {
     setFourthBlock(data);
   };
 
-
-
   return (
     <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
@@ -288,8 +325,8 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerOneBlock.src}
-          text="Seu IMC é: 23.1"
-          title="Seu IMC é: "
+          title={`Seu IMC é: ${calculateImc()?.imc}`}
+          text={`A descrição do seu IMC é: ${calculateImc()?.descricao}`}
           stage={1}
           setBlock={setBlock}
         />
@@ -324,6 +361,9 @@ export default function Questions() {
           setBlock={setBlock}
         />
       )}
+      {(finshe && (
+        <BlockEncerramento userData={userData}  stage={4} text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. " title="Você completou todas as etapas."  />
+      ))}
 
       <HeaderHome backgroundColor="#FFF" />
       <div className="w-full h-full">
@@ -333,7 +373,7 @@ export default function Questions() {
               {currentQuestion && currentQuestion.id_pergunta}
             </h1>
             <Image
-              className={`absolute w-16 ml-24 ${oneBlock ? "hidden" : "flex"}`}
+              className={`${finshe === true ? "[display:none]":""} absolute w-16 ml-24 ${oneBlock && finshe ? "hidden" : "flex"}`}
               src={heart}
               width={100}
               height={100}
