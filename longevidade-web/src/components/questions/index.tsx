@@ -34,7 +34,9 @@ export default function Questions() {
   const [inputValueAltura, setInputValueAltura] = useState(Number);
   const [inputValuePeso, setInputValuePeso] = useState(Number);
   const [userData, setUserData] = useState<Userdata>({});
-  const [finshe, setFinshe] = useState(false)
+  const [finshe, setFinshe] = useState(false);
+
+  console.log(userData);
 
   const calculateImc = () => {
     const peso = userData.peso;
@@ -46,17 +48,17 @@ export default function Questions() {
         imc: imc.toFixed(2),
         descricao: "Magreza",
       };
-    } else if (imc > 18.5 || imc <= 24.9) {
+    } else if (imc > 18.5 && imc <= 24.9) {
       result = {
         imc: imc.toFixed(2),
         descricao: "Normal",
       };
-    } else if (imc > 24.9 || imc <= 29.9) {
+    } else if (imc > 24.9 && imc <= 29.9) {
       result = {
         imc: imc.toFixed(2),
         descricao: "Sobrepeso",
       };
-    } else if (imc > 29.9 || imc <= 39.9) {
+    } else if (imc > 29.9 && imc <= 39.9) {
       result = {
         imc: imc.toFixed(2),
         descricao: "Obesidade",
@@ -94,14 +96,14 @@ export default function Questions() {
   }: answersData) => {
     verifiedAnswers({ answerNumber, answer, numberQuestion, perguntaNumber });
 
-    if (perguntaNumber === 21 && calculateAge(userData.idade) < 40) {
+    if (perguntaNumber === 21 &&  Number(userData.idade) < 40) {
       setFourthBlock(true);
       setBlocoFour(false);
       setBlocoFive(true);
       setCurrentQuestionIndex(0);
     } else if (
       perguntaNumber === 20 &&
-      calculateAge(userData.idade) >= 45 &&
+      Number(userData.idade) >= 45 &&
       userData.genero === "Masculino"
     ) {
       setFourthBlock(true);
@@ -122,13 +124,20 @@ export default function Questions() {
       } else if (blocoThree) {
         if (
           perguntaNumber === 24 &&
-          calculateAge(userData.idade) < 45 &&
+          Number(userData.idade) < 45 &&
           userData.genero === "Masculino"
         ) {
+          console.log("130");
+
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFive(true);
         } else {
+          console.log("136");
+          console.log(perguntaNumber);
+          console.log(userData.idade);
+          
+
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFour(true);
@@ -137,21 +146,20 @@ export default function Questions() {
         setFourthBlock(true);
         setBlocoFour(false);
         setBlocoFive(true);
-      }
-       else if (blocoFive) {
+      } else if (blocoFive) {
         setFourthBlock(false);
         setBlocoFour(false);
         setBlocoFive(false);
-        setFinshe(true)
+        setFinshe(true);
       }
 
       if (
         perguntaNumber === 24 &&
         userData.genero === "Feminino" &&
-        calculateAge(userData.idade) >= 15
+        Number(userData.idade) >= 15
       ) {
         setCurrentQuestionIndex(2);
-      } else if (perguntaNumber === 21 && calculateAge(userData.idade) >= 40) {
+      } else if (perguntaNumber === 21 &&  Number(userData.idade) >= 40) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
         setCurrentQuestionIndex(0);
@@ -220,14 +228,17 @@ export default function Questions() {
     numberQuestion,
     perguntaNumber,
   }: answersData) => {
+    console.log(answerNumber);
+
     const updatedUserData: Userdata = { ...userData };
 
     switch (numberQuestion) {
       case 1:
         updatedUserData.genero = answer;
-        break;
+
       case 2:
-        updatedUserData.idade = answerNumber;
+        updatedUserData.dataNascimento = answerNumber;
+        updatedUserData.idade = calculateAge(answerNumber);
       case 3:
         updatedUserData.altura = inputValueAltura;
       case 4:
@@ -240,11 +251,6 @@ export default function Questions() {
         updatedUserData.pergunta_7 = parseInt(answerNumber);
       case 8:
         updatedUserData.pergunta_8 = parseInt(answerNumber);
-      case 9:
-        if (updatedUserData.peso && updatedUserData.altura) {
-          updatedUserData.pergunta_9 =
-            updatedUserData.peso / (updatedUserData.altura * 2);
-        }
       case 10:
         updatedUserData.pergunta_10 = parseInt(answerNumber);
       case 11:
@@ -298,6 +304,8 @@ export default function Questions() {
         updatedUserData.pergunta_26 = parseInt(answerNumber);
       case 27:
         updatedUserData.pergunta_27 = parseInt(answerNumber);
+      case 27:
+        updatedUserData.pergunta_28 = parseInt(answerNumber);
       default:
         break;
     }
@@ -361,9 +369,14 @@ export default function Questions() {
           setBlock={setBlock}
         />
       )}
-      {(finshe && (
-        <BlockEncerramento userData={userData}  stage={4} text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. " title="Você completou todas as etapas."  />
-      ))}
+      {finshe && (
+        <BlockEncerramento
+          userData={userData}
+          stage={4}
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+          title="Você completou todas as etapas."
+        />
+      )}
 
       <HeaderHome backgroundColor="#FFF" />
       <div className="w-full h-full">
@@ -373,7 +386,9 @@ export default function Questions() {
               {currentQuestion && currentQuestion.id_pergunta}
             </h1>
             <Image
-              className={`${finshe === true ? "[display:none]":""} absolute w-16 ml-24 ${oneBlock && finshe ? "hidden" : "flex"}`}
+              className={`${
+                finshe === true ? "[display:none]" : ""
+              } absolute w-16 ml-24 ${oneBlock && finshe ? "hidden" : "flex"}`}
               src={heart}
               width={100}
               height={100}

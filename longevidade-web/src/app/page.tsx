@@ -1,12 +1,14 @@
 "use client";
 
-import BlockIntermediario from "@/components/blocoIntermediario";
 import Home from "@/components/home";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App() {
   return (
-    <main className="flex flex-col bg-primary-color overflow-hidden  items-center ">
-      <Home />
-    </main>
+    <QueryClientProvider client={new QueryClient()}>
+      <main className="flex flex-col bg-primary-color overflow-hidden  items-center ">
+        <Home />
+      </main>
+    </QueryClientProvider>
   );
 }

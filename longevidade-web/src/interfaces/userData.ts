@@ -3,7 +3,7 @@ export interface Userdata {
 
     email?: string,
 
-    idade?: string,
+    idade?: string | number,
 
     genero?: string,
 
@@ -20,7 +20,6 @@ export interface Userdata {
     pergunta_7?: number,
 
     pergunta_8?: number,
-    pergunta_9?: number,
 
     pergunta_10?: number,
 
@@ -60,4 +59,10 @@ export interface Userdata {
 
     pergunta_28?: number,
 };
+
+export interface ResponseAPI{
+    porcentagem_atual: number;
+    projecao_30_dias: number;
+    projecao_60_dias: number;
+}
 
