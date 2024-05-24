@@ -8,8 +8,7 @@ export default function App() {
   return (
     <QueryClientProvider client={new QueryClient()}>
       <main className="flex flex-col bg-primary-color   items-center ">
-        {/* <Home /> */}
-        <DashUser/>
+        <Home />
       </main>
     </QueryClientProvider>
   );

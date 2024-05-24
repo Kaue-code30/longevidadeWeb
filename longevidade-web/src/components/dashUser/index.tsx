@@ -1,45 +1,47 @@
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import HeaderFinal from "../headerFinal";
-import Chart from "react-apexcharts";
+
+// Importação dinâmica do Chart com desativação da renderização no lado do servidor
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function DashUser() {
-    const state = {
-        options: {
-          chart: {
-            id: "basic-bar",
-            foreColor: '#373d3f'
-          },
-          stroke: {
-            show: true,
-            width: 8,
-            colors: ["#366A48"],
-            curve: 'smooth' as 'smooth'
-          },
-          grid: {
-            show: false
-          },
-          fill: {
-            type: 'gradient',
-            gradient: {
-              shade: 'light',
-              type: 'horizontal', // 'horizontal' or 'vertical'
-              shadeIntensity: 0.5,
-              gradientToColors:["#366A48"], // array of colors to which the gradient transitions
-              inverseColors: true,
-              opacityFrom: 0.7,
-              opacityTo: 0.9,
-              stops: [0, 100] // Define the position of each color stop in the gradient
-            }
-          }
-        },
-        series: [
-          {
-            name: "Você",
-            data: [10, 15, 10, 20]
-          }
-        ]
-      };
-      
+  const state = {
+    options: {
+      chart: {
+        id: "basic-bar",
+        foreColor: '#373d3f'
+      },
+      stroke: {
+        show: true,
+        width: 8,
+        colors: ["#366A48"],
+        curve: 'smooth' as "smooth"
+      },
+      grid: {
+        show: false
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'light',
+          type: 'horizontal', // 'horizontal' or 'vertical'
+          shadeIntensity: 0.5,
+          gradientToColors: ["#366A48"], // array of colors to which the gradient transitions
+          inverseColors: true,
+          opacityFrom: 0.7,
+          opacityTo: 0.9,
+          stops: [0, 100] // Define the posição de cada parada de cor no gradiente
+        }
+      }
+    },
+    series: [
+      {
+        name: "Você",
+        data: [10, 15, 10, 20]
+      }
+    ]
+  };
 
   return (
     <motion.div className="h-[180vh] overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
@@ -63,7 +65,7 @@ export default function DashUser() {
             series={state.series}
             type="line"
             width="300"
-            height={"300"}
+            height="300"
           />
         </div>
         <div className="w-full h-[370px] rounded-2xl bg-second-color"></div>
