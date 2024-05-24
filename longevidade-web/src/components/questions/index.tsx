@@ -96,7 +96,7 @@ export default function Questions() {
   }: answersData) => {
     verifiedAnswers({ answerNumber, answer, numberQuestion, perguntaNumber });
 
-    if (perguntaNumber === 21 &&  Number(userData.idade) < 40) {
+    if (perguntaNumber === 21 && Number(userData.idade) < 40) {
       setFourthBlock(true);
       setBlocoFour(false);
       setBlocoFive(true);
@@ -136,7 +136,6 @@ export default function Questions() {
           console.log("136");
           console.log(perguntaNumber);
           console.log(userData.idade);
-          
 
           setThirdBlock(true);
           setBlocoThree(false);
@@ -159,7 +158,7 @@ export default function Questions() {
         Number(userData.idade) >= 15
       ) {
         setCurrentQuestionIndex(2);
-      } else if (perguntaNumber === 21 &&  Number(userData.idade) >= 40) {
+      } else if (perguntaNumber === 21 && Number(userData.idade) >= 40) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
         setCurrentQuestionIndex(0);
@@ -387,7 +386,13 @@ export default function Questions() {
             </h1>
             <Image
               className={`${
-                finshe === true ? "[display:none]" : ""
+                finshe === true ||
+                secondBloc === true ||
+                thirdBlco === true ||
+                fourthBlco === true ||
+                oneBlock === true
+                  ? "[display:none]"
+                  : ""
               } absolute w-16 ml-24 ${oneBlock && finshe ? "hidden" : "flex"}`}
               src={heart}
               width={100}
@@ -396,7 +401,7 @@ export default function Questions() {
             />
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-full px-10 h-full">
+        <div className="flex flex-col gap-4 w-full px-10 h-full overflow-y-auto">
           <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
           {currentQuestion.respostas.map((data, index) => (
             <>

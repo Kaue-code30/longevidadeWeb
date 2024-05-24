@@ -296,7 +296,7 @@
     {
       "id_pergunta": 6,
       "pergunta": 15,
-      "descricao": "Quantas vezes por semana, você consome alimentos ultraprocessados ou industrializados (comida pronta no mercado, que vem em sacos ou congelada, fastfood, salgadinhos, presuntos e afins)?",
+      "descricao": "Quantas vezes por semana, você consome alimentos ultraprocessados ou industrializados (comida pronta no mercado e afins)?",
       "respostas": [
         {
           "id_resposta": 46,

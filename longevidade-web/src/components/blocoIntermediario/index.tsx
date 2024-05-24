@@ -78,10 +78,10 @@ export default function BlockIntermediario({
           </ul>
         </div>
         <div className="w-full flex items-center justify-center pt-5 flex-col h-4/5 ">
-          <div className="w-full  h-1/2">
+          <div className="w-full ">
             <Image
-              quality={100}
-              className="w-full h-full"
+            
+              className="w-full"
               src={banner}
               alt="Let's Forever"
               width={100}
@@ -97,7 +97,7 @@ export default function BlockIntermediario({
                 setBlock(false) ;
                 return <Questions/>
               }}
-              className="w-36 flex items-center justify-center gap-2 bg-third-color text-second-color font-medium h-10 rounded-lg "
+              className="w-full flex items-center justify-center gap-2 bg-third-color text-second-color font-medium h-12 rounded-lg "
             >
               continuar <FaArrowRight className="text-lg" />
             </button>

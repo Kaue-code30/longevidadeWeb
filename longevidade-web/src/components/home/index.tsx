@@ -77,7 +77,7 @@ export default function Home() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="w-full shadow-md flex items-center justify-center gap-2 h-10 bg-third-color rounded-lg text-second-color font-medium -mt-3"
+              className="w-full shadow-md flex items-center justify-center gap-2 h-12 bg-third-color rounded-lg text-second-color font-medium -mt-3"
             >
               {questionsInit ? "Voltar" : "Começar agora"}{" "}
               <FaArrowRightLong className="text-xl" />
