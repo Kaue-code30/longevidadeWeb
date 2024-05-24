@@ -61,8 +61,8 @@ export interface Userdata {
 };
 
 export interface ResponseAPI{
-    porcentagem_atual: number;
-    projecao_30_dias: number;
-    projecao_60_dias: number;
+    porcentagem_atual: number | undefined;
+    projecao_30_dias: number | undefined;
+    projecao_60_dias: number | undefined;
 }
 

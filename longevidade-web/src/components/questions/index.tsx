@@ -326,7 +326,7 @@ export default function Questions() {
   return (
     <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
-      className="h-full bg-no-repeat bg-contain bg-bottom w-full bg-second-color"
+      className="h-full bg-no-repeat overflow-auto  bg-contain bg-bottom w-full bg-second-color"
     >
       {oneBlock && (
         <BlockIntermediario
@@ -376,143 +376,146 @@ export default function Questions() {
           title="Você completou todas as etapas."
         />
       )}
-
-      <HeaderHome backgroundColor="#FFF" />
-      <div className="w-full h-full">
-        <div className="w-full flex justify-start items-center px-10 h-[10%]">
-          <div className="w-16 h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
-            <h1 className="text-2xl font-black">
-              {currentQuestion && currentQuestion.id_pergunta}
-            </h1>
-            <Image
-              className={`${
-                finshe === true ||
-                secondBloc === true ||
-                thirdBlco === true ||
-                fourthBlco === true ||
-                oneBlock === true
-                  ? "[display:none]"
-                  : ""
-              } absolute w-16 ml-24 ${oneBlock && finshe ? "hidden" : "flex"}`}
-              src={heart}
-              width={100}
-              height={100}
-              alt=""
-            />
+      <div className={` ${finshe === true || oneBlock === true || secondBloc === true || thirdBlco === true  ? "[display:none]":""} w-full h-full overflow-hidden`}>
+        <HeaderHome backgroundColor="#FFF" />
+        <div className="w-full h-full ">
+          <div className="w-full flex justify-start items-center px-10 h-[10%]">
+            <div className="w-16 h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
+              <h1 className="text-2xl font-black">
+                {currentQuestion && currentQuestion.id_pergunta}
+              </h1>
+              <Image
+                className={`${
+                  finshe === true ||
+                  secondBloc === true ||
+                  thirdBlco === true ||
+                  fourthBlco === true ||
+                  oneBlock === true
+                    ? "[display:none]"
+                    : ""
+                } absolute w-16 ml-24 ${
+                  oneBlock && finshe ? "hidden" : "flex"
+                }`}
+                src={heart}
+                width={100}
+                height={100}
+                alt=""
+              />
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-4 w-full px-10 h-full overflow-y-auto">
-          <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
-          {currentQuestion.respostas.map((data, index) => (
-            <>
-              {currentQuestion.descricao.startsWith(
-                "Qual sua data de nascimento?"
-              ) ? (
-                <>
-                  <input
-                    key={index}
-                    type="date"
-                    required={true}
-                    value={inputValue}
-                    onChange={handleInputChange}
-                    className="border-b-[1px] border-[#D1D5DB] bg-[#0000] h-10"
-                  />
-                  <button
-                    onClick={() =>
-                      handleAnswerClick({
-                        answerNumber: inputValue,
-                        numberQuestion: currentQuestion.pergunta,
-                        perguntaNumber: currentQuestion.pergunta,
-                      })
-                    }
-                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                      !inputValue && "opacity-50 cursor-not-allowed"
-                    }`}
-                    disabled={!inputValue}
-                  >
-                    confirmar
-                  </button>
-                </>
-              ) : currentQuestion.descricao.startsWith(
-                  "Qual sua altura (em metros)?"
+          <div className="flex flex-col gap-4 w-full px-10 h-full overflow-hidden">
+            <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
+            {currentQuestion.respostas.map((data, index) => (
+              <>
+                {currentQuestion.descricao.startsWith(
+                  "Qual sua data de nascimento?"
                 ) ? (
-                <>
-                  <input
-                    type="number"
-                    required={true}
-                    value={inputValueAltura}
-                    onChange={handleHeightInputChange}
-                    placeholder="00,00 Mt"
-                    className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
-                  />
-                  <button
-                    onClick={() =>
-                      handleAnswerClick({
-                        answerNumber: inputValue,
-                        numberQuestion: currentQuestion.pergunta,
-                        perguntaNumber: currentQuestion.pergunta,
-                      })
-                    }
-                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                      !inputValue && "opacity-50 cursor-not-allowed"
-                    }`}
-                    disabled={!inputValue}
-                  >
-                    confirmar
-                  </button>
-                </>
-              ) : currentQuestion.descricao.startsWith(
-                  "Quanto você acredita que pesa atualmente(em kg)?"
-                ) ? (
-                <>
-                  <input
-                    type="number"
-                    required={true}
-                    value={inputValuePeso}
-                    onChange={handleWheigthInputChange}
-                    placeholder="85 Kg"
-                    maxLength={3}
-                    size={3}
-                    className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
-                  />
+                  <>
+                    <input
+                      key={index}
+                      type="date"
+                      required={true}
+                      value={inputValue}
+                      onChange={handleInputChange}
+                      className="border-b-[1px] border-[#D1D5DB] bg-[#0000] h-10"
+                    />
+                    <button
+                      onClick={() =>
+                        handleAnswerClick({
+                          answerNumber: inputValue,
+                          numberQuestion: currentQuestion.pergunta,
+                          perguntaNumber: currentQuestion.pergunta,
+                        })
+                      }
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                        !inputValue && "opacity-50 cursor-not-allowed"
+                      }`}
+                      disabled={!inputValue}
+                    >
+                      confirmar
+                    </button>
+                  </>
+                ) : currentQuestion.descricao.startsWith(
+                    "Qual sua altura (em metros)?"
+                  ) ? (
+                  <>
+                    <input
+                      type="number"
+                      required={true}
+                      value={inputValueAltura}
+                      onChange={handleHeightInputChange}
+                      placeholder="00,00 Mt"
+                      className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
+                    />
+                    <button
+                      onClick={() =>
+                        handleAnswerClick({
+                          answerNumber: inputValue,
+                          numberQuestion: currentQuestion.pergunta,
+                          perguntaNumber: currentQuestion.pergunta,
+                        })
+                      }
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                        !inputValue && "opacity-50 cursor-not-allowed"
+                      }`}
+                      disabled={!inputValue}
+                    >
+                      confirmar
+                    </button>
+                  </>
+                ) : currentQuestion.descricao.startsWith(
+                    "Quanto você acredita que pesa atualmente(em kg)?"
+                  ) ? (
+                  <>
+                    <input
+                      type="number"
+                      required={true}
+                      value={inputValuePeso}
+                      onChange={handleWheigthInputChange}
+                      placeholder="85 Kg"
+                      maxLength={3}
+                      size={3}
+                      className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
+                    />
 
+                    <button
+                      onClick={() =>
+                        handleAnswerClick({
+                          answerNumber: inputValue,
+                          numberQuestion: currentQuestion.pergunta,
+                          perguntaNumber: currentQuestion.pergunta,
+                        })
+                      }
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
+                        !inputValue && "opacity-50 cursor-not-allowed"
+                      }`}
+                      disabled={!inputValue}
+                    >
+                      confirmar
+                    </button>
+                  </>
+                ) : (
                   <button
+                    type="submit"
+                    key={index}
                     onClick={() =>
                       handleAnswerClick({
-                        answerNumber: inputValue,
+                        answerNumber: data.valor.toString(),
+                        answer: data.resposta,
                         numberQuestion: currentQuestion.pergunta,
                         perguntaNumber: currentQuestion.pergunta,
                       })
                     }
-                    className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                      !inputValue && "opacity-50 cursor-not-allowed"
-                    }`}
-                    disabled={!inputValue}
+                    className={`${
+                      data.resposta.length > 10 ? "h-16 px-2" : "h-16"
+                    } w-full h-10 rounded-lg bg-primary-color text-black`}
                   >
-                    confirmar
+                    {data.resposta}
                   </button>
-                </>
-              ) : (
-                <button
-                  type="submit"
-                  key={index}
-                  onClick={() =>
-                    handleAnswerClick({
-                      answerNumber: data.valor.toString(),
-                      answer: data.resposta,
-                      numberQuestion: currentQuestion.pergunta,
-                      perguntaNumber: currentQuestion.pergunta,
-                    })
-                  }
-                  className={`${
-                    data.resposta.length > 10 ? "h-16 px-2" : "h-16"
-                  } w-full h-10 rounded-lg bg-primary-color text-black`}
-                >
-                  {data.resposta}
-                </button>
-              )}
-            </>
-          ))}
+                )}
+              </>
+            ))}
+          </div>
         </div>
       </div>
     </motion.section>

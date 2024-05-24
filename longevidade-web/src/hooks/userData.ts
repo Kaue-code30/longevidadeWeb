@@ -3,7 +3,7 @@ import { ResponseAPI, Userdata } from "@/interfaces/userData";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
-const API_URL = 'http://89.116.73.240:8080/resposta/json';
+const API_URL = 'http://89.116.73.240:8081/resposta/json';
 
 const fetchData = async (clientData: Userdata): Promise<AxiosResponse<ResponseAPI>> => {
     const options = {
