@@ -31,8 +31,8 @@ export default function Questions() {
   const [fourthBlco, setFourthBlock] = useState(false);
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
-  const [inputValueAltura, setInputValueAltura] = useState(Number);
-  const [inputValuePeso, setInputValuePeso] = useState(Number);
+  const [inputValueAltura, setInputValueAltura] = useState("");
+  const [inputValuePeso, setInputValuePeso] = useState("");
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
 
@@ -183,32 +183,31 @@ export default function Questions() {
   ) => {
     let inputValue = event.target.value;
 
-    // Remover caracteres que não sejam dígitos ou ponto decimal
-    inputValue = inputValue.replace(/[^\d.]/g, "");
+    // Remover caracteres que não sejam dígitos
+    inputValue = inputValue.replace(/[^\d]/g, "");
 
-    // Dividir a parte inteira e decimal
-    const [integerPart, decimalPart] = inputValue.split(".");
-
-    // Limitar a parte inteira a dois dígitos
-    let formattedIntegerPart = integerPart.slice(0, 2);
-
-    // Adicionar zeros à parte decimal se necessário para garantir dois dígitos
-    let formattedDecimalPart = decimalPart
-      ? decimalPart.padEnd(2, "0").slice(0, 2)
-      : "00";
-
-    // Se houver parte decimal, adicionar o ponto decimal
-    if (formattedDecimalPart !== "00") {
-      formattedDecimalPart = "." + formattedDecimalPart;
-    } else {
-      formattedDecimalPart = "";
+    // Se o input estiver vazio, apenas atualizar o estado para uma string vazia
+    if (inputValue.length === 0) {
+      setInputValueAltura("");
+      return;
     }
 
-    // Montar o valor formatado
-    const formattedValue = formattedIntegerPart + formattedDecimalPart;
+    // Adicionar ponto decimal após o primeiro dígito para formato 1.75
+    let formattedValue;
+    if (inputValue.length === 1) {
+      formattedValue = inputValue; // Para um único dígito, apenas manter o dígito
+    } else if (inputValue.length === 2) {
+      formattedValue = inputValue[0] + "." + inputValue[1]; // Para dois dígitos, adicionar ponto decimal entre eles
+    } else {
+      // Limitar a parte inteira a 1 dígito e a decimal a 2 dígitos
+      const integerPart = inputValue.slice(0, 1);
+      const decimalPart = inputValue.slice(1, 3).padEnd(2, "0");
+
+      formattedValue = integerPart + "." + decimalPart;
+    }
 
     // Definir o valor formatado no estado ou realizar outra ação, como atualização de estado
-    setInputValueAltura(Number(formattedValue));
+    setInputValueAltura(formattedValue);
   };
 
   const handleWheigthInputChange = (
@@ -218,7 +217,7 @@ export default function Questions() {
 
     inputValue = inputValue.replace(/[^\d.]/g, "");
 
-    setInputValuePeso(Number(inputValue));
+    setInputValuePeso(inputValue);
   };
 
   const verifiedAnswers = ({
@@ -239,9 +238,9 @@ export default function Questions() {
         updatedUserData.dataNascimento = answerNumber;
         updatedUserData.idade = calculateAge(answerNumber);
       case 3:
-        updatedUserData.altura = inputValueAltura;
+        updatedUserData.altura = Number(inputValueAltura);
       case 4:
-        updatedUserData.peso = inputValuePeso;
+        updatedUserData.peso = Number(inputValuePeso);
       case 5:
         updatedUserData.pergunta_5 = parseInt(answerNumber);
       case 6:
@@ -343,7 +342,7 @@ export default function Questions() {
           arrayQuestions={blocoAtual}
           banner={bannerTwoBlock.src}
           text="teste 1"
-          title="Seu IMC é: 23.1"
+          title="Lorem Ipsum is simply dummy text."
           stage={2}
           setBlock={setBlock}
         />
@@ -353,7 +352,7 @@ export default function Questions() {
           arrayQuestions={blocoAtual}
           banner={bannerThreeBlock.src}
           text="teste 2"
-          title="Seu IMC é: 23.1"
+          title="Lorem Ipsum is simply dummy text."
           stage={3}
           setBlock={setBlock}
         />
@@ -363,7 +362,7 @@ export default function Questions() {
           arrayQuestions={blocoAtual}
           banner={bannerFour.src}
           text="Quarto bloco"
-          title="Seu IMC é: 23.1"
+          title="Lorem Ipsum is simply dummy text."
           stage={4}
           setBlock={setBlock}
         />
@@ -376,7 +375,16 @@ export default function Questions() {
           title="Você completou todas as etapas."
         />
       )}
-      <div className={` ${finshe === true || oneBlock === true || secondBloc === true || thirdBlco === true  ? "[display:none]":""} w-full h-full overflow-hidden`}>
+      <div
+        className={` ${
+          finshe === true ||
+          oneBlock === true ||
+          secondBloc === true ||
+          thirdBlco === true
+            ? "[display:none]"
+            : ""
+        } w-full h-full overflow-hidden`}
+      >
         <HeaderHome backgroundColor="#FFF" />
         <div className="w-full h-full ">
           <div className="w-full flex justify-start items-center px-10 h-[10%]">
@@ -440,7 +448,7 @@ export default function Questions() {
                   ) ? (
                   <>
                     <input
-                      type="number"
+                      type="text"
                       required={true}
                       value={inputValueAltura}
                       onChange={handleHeightInputChange}
