@@ -342,7 +342,7 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerTwoBlock.src}
-          text="Cu assado"
+          text="teste 1"
           title="Seu IMC é: 23.1"
           stage={2}
           setBlock={setBlock}
@@ -352,7 +352,7 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerThreeBlock.src}
-          text="Cu do cleiton ta assado"
+          text="teste 2"
           title="Seu IMC é: 23.1"
           stage={3}
           setBlock={setBlock}
