@@ -22,7 +22,6 @@ export default function GetInformations({ userData }: BlockProps) {
   const [nameUser, setNameUser] = useState("");
   const { mutate, isPending, isSuccess, response } = useClientData();
 
-  console.log(response?.status);
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmailUser(event.target.value);
@@ -70,29 +69,28 @@ export default function GetInformations({ userData }: BlockProps) {
 
   return (
     <QueryClientProvider client={new QueryClient()}>
-      {isSuccess && (
+      {response?.data.porcentagem_atual && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 10 }}
           transition={{ duration: 1 }}
         >
           <DashUser
-            // porcentagem_atual={response?.data.porcentagem_atual}
-            // projecao_30_dias={response?.data.projecao_30_dias}
-            // projecao_60_dias={response?.data.projecao_60_dias}
+            porcentagem_atual={Number(response?.data.porcentagem_atual.toFixed(2))}
+            projecao_30_dias={Number(response?.data.projecao_30_dias?.toFixed(2))}
+            projecao_60_dias={response?.data.projecao_60_dias}
           />
         </motion.div>
-      )}
-      {/* {isSuccess && <GetInformations userData={userData} />} */}
+      )} 
       <div
         className={` ${
-          response?.status === 201 ? "[display:none]" : ""
+          response?.data.porcentagem_atual ? "[display:none]" : ""
         } w-full h-full`}
       >
         <div
           style={{ backgroundImage: `url(${arvoreBranco.src})` }}
           className={`h-full items-center justify-center ${
-            isSuccess === true ? "[display:none]" : "flex"
+            response?.data.porcentagem_atual ? "[display:none]" : "flex"
           } flex-col bg-contain bg-no-repeat bg-bottom z-10 w-full overflow-hidden bg-second-color`}
         >
           {isPending && (

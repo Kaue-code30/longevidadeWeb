@@ -64,5 +64,6 @@ export interface ResponseAPI{
     porcentagem_atual: number | undefined;
     projecao_30_dias: number | undefined;
     projecao_60_dias: number | undefined;
+    status?: number | undefined;
 }
 

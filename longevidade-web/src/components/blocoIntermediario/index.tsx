@@ -80,12 +80,12 @@ export default function BlockIntermediario({
         <div className="w-full flex items-center justify-center pt-5 flex-col h-4/5 ">
           <div className="w-full ">
             <Image
-            
               className="w-full"
               src={banner}
               alt="Let's Forever"
               width={100}
               height={100}
+             
             />
           </div>
           <div className="flex items-start gap-6 w-4/5 justify-center flex-col pt-5 h-1/2">

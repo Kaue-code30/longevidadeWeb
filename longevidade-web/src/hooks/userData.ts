@@ -50,10 +50,9 @@ const fetchData = async (clientData: Userdata): Promise<AxiosResponse<ResponseAP
     };
 
     const response = await axios.request<ResponseAPI>(options);
-
-    console.log(response.data);
-
-
+    console.log(response);
+    
+    
     return response;
 }
 

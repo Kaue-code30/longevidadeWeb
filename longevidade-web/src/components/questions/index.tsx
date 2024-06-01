@@ -36,7 +36,7 @@ export default function Questions() {
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
 
-  console.log(userData);
+
 
   const calculateImc = () => {
     const peso = userData.peso;
@@ -127,16 +127,12 @@ export default function Questions() {
           Number(userData.idade) < 45 &&
           userData.genero === "Masculino"
         ) {
-          console.log("130");
+      
 
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFive(true);
         } else {
-          console.log("136");
-          console.log(perguntaNumber);
-          console.log(userData.idade);
-
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFour(true);
@@ -226,7 +222,7 @@ export default function Questions() {
     numberQuestion,
     perguntaNumber,
   }: answersData) => {
-    console.log(answerNumber);
+
 
     const updatedUserData: Userdata = { ...userData };
 
