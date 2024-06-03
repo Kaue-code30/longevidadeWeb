@@ -2,6 +2,10 @@ import Image from "next/image";
 import HeaderHome from "../header";
 import { useEffect, useState } from "react";
 import heart from "@/assets/home/heart.svg";
+import academy from "@/assets/home/academy.svg";
+import plant from "@/assets/home/plant.svg";
+import wine from "@/assets/home/wine.svg";
+import doctor from "@/assets/home/doctor.svg";
 import backgroundLast from "@/assets/home/arvore-verde.png";
 import { QuestionsData } from "@/interfaces/questions";
 import BlockIntermediario from "../blocoIntermediario";
@@ -35,8 +39,6 @@ export default function Questions() {
   const [inputValuePeso, setInputValuePeso] = useState("");
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
-
-
 
   const calculateImc = () => {
     const peso = userData.peso;
@@ -127,8 +129,6 @@ export default function Questions() {
           Number(userData.idade) < 45 &&
           userData.genero === "Masculino"
         ) {
-      
-
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFive(true);
@@ -222,8 +222,6 @@ export default function Questions() {
     numberQuestion,
     perguntaNumber,
   }: answersData) => {
-
-
     const updatedUserData: Userdata = { ...userData };
 
     switch (numberQuestion) {
@@ -305,6 +303,22 @@ export default function Questions() {
     }
 
     setUserData(updatedUserData);
+  };
+  const getImageSrc = () => {
+    
+    if (blocoTwo) {
+      console.log("entrou");
+      
+      return wine;
+    } else if (blocoThree) {
+      return academy;
+    } else if (blocoFour) {
+      return doctor;
+    } else if (blocoFive) {
+      return plant;
+    } else {
+      return heart;
+    }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -400,7 +414,7 @@ export default function Questions() {
                 } absolute w-16 ml-24 ${
                   oneBlock && finshe ? "hidden" : "flex"
                 }`}
-                src={heart}
+                src={getImageSrc()}
                 width={100}
                 height={100}
                 alt=""

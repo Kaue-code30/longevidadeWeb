@@ -22,7 +22,6 @@ export default function GetInformations({ userData }: BlockProps) {
   const [nameUser, setNameUser] = useState("");
   const { mutate, isPending, isSuccess, response } = useClientData();
 
-
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmailUser(event.target.value);
   };
@@ -76,12 +75,16 @@ export default function GetInformations({ userData }: BlockProps) {
           transition={{ duration: 1 }}
         >
           <DashUser
-            porcentagem_atual={Number(response?.data.porcentagem_atual.toFixed(2))}
-            projecao_30_dias={Number(response?.data.projecao_30_dias?.toFixed(2))}
+            porcentagem_atual={Number(
+              response?.data.porcentagem_atual.toFixed(2)
+            )}
+            projecao_30_dias={Number(
+              response?.data.projecao_30_dias?.toFixed(2)
+            )}
             projecao_60_dias={response?.data.projecao_60_dias}
           />
         </motion.div>
-      )} 
+      )}
       <div
         className={` ${
           response?.data.porcentagem_atual ? "[display:none]" : ""
@@ -167,6 +170,8 @@ export default function GetInformations({ userData }: BlockProps) {
                     placeholder="Seu e-mail"
                   />
                 </div>
+                {response?.data.status === 404 && <p className="text-[#ff00009f]">O e-mail informado já está cadastrado! Por favor, utilize outro e-mail.</p>}
+
                 <button
                   onClick={() => objectPost()}
                   className="w-full flex items-center justify-center gap-2 bg-third-color text-second-color font-medium h-12 rounded-lg "
