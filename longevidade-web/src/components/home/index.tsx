@@ -43,7 +43,7 @@ export default function Home() {
             className="w-full h-[70%] gap-6 px-10 flex items-center justify-center flex-col"
           >
             <Image
-              className="w-full"
+              className="w-4/5"
               src={bannerHome}
               alt="Let's Go Forever Image"
               width={100}
