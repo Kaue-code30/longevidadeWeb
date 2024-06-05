@@ -4,7 +4,10 @@
 
 body{
   height: 100%; 
+  padding-top: 30px;
+  background-color: #BEDEC9;
   width: 100%;
+  zoom: 0.99
 
 }
 

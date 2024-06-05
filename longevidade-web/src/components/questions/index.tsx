@@ -411,7 +411,7 @@ export default function Questions() {
                   oneBlock === true
                     ? "[display:none]"
                     : ""
-                } absolute w-16 ml-24 ${
+                } absolute w-14 ml-24 ${
                   oneBlock && finshe ? "hidden" : "flex"
                 }`}
                 src={getImageSrc()}
