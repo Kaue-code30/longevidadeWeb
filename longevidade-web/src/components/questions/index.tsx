@@ -398,7 +398,7 @@ export default function Questions() {
         <div className="w-full h-full ">
           <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
             <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
-              <h1 className="flex text-2xl font-black">
+              <h1 className="flex text-2xl font-bold">
                 {currentQuestion && currentQuestion.id_pergunta}
               </h1>
 
@@ -420,7 +420,7 @@ export default function Questions() {
             />
           </div>
           <div className="flex flex-col gap-4 w-full px-10 h-full overflow-hidden">
-            <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
+            <h1 className="text-3xl font-medium">{currentQuestion.descricao}</h1>
             {currentQuestion.respostas.map((data, index) => (
               <>
                 {currentQuestion.descricao.startsWith(

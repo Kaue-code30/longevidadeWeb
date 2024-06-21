@@ -69,7 +69,7 @@ export default function BlockIntermediario({
             />
           </div>
           <div className="flex items-start gap-6 w-4/5 justify-center flex-col pt-5 h-1/2">
-            <h1 className="text-2xl font-bold">{title}</h1>
+            <h1 className="text-2xl font-medium">{title}</h1>
             <p className="text-base">{text}</p>
             <button
               onClick={() => {

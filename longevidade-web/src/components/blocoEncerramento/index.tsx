@@ -69,7 +69,7 @@ export default function BlockEncerramento({
               </li>
             </ul>
           </div>
-          <div className="w-full flex items-center justify-center pt-5 flex-col h-4/5 ">
+          <div className="w-full flex items-center justify-center  flex-col h-4/5 ">
             <div className="w-full flex items-center justify-center  h-1/2">
               <Image
                 quality={100}
@@ -81,7 +81,7 @@ export default function BlockEncerramento({
               />
             </div>
             <div className="flex items-start gap-4 w-4/5 justify-start pt-4 flex-col h-1/2">
-              <h1 className="text-3xl text-left font-bold  ">{title}</h1>
+              <h1 className="text-3xl text-left font-medium  ">{title}</h1>
               <p className="text-base">{text}</p>
 
               <button

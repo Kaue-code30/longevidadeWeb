@@ -94,7 +94,7 @@ export default function GetInformations({ userData }: BlockProps) {
           style={{ backgroundImage: `url(${arvoreBranco.src})` }}
           className={`h-full items-center justify-center ${
             response?.data.porcentagem_atual ? "[display:none]" : "flex"
-          } flex-col bg-contain bg-no-repeat bg-bottom z-10 w-full overflow-hidden bg-second-color`}
+          } flex-col gap-3 bg-contain bg-no-repeat bg-bottom z-10 w-full  bg-second-color`}
         >
           {isPending && (
             <div className="w-full flex items-center justify-center absolute z-10  h-screen bg-[#00000068]">
@@ -116,12 +116,12 @@ export default function GetInformations({ userData }: BlockProps) {
           )}
 
           <HeaderFinal backgroundColor="bg-second-color" />
-          <div className="flex-col flex items-center pb-2 justify-start pt-20 w-full h-full ">
-            <div className="w-full flex items-center justify-center  flex-col h-4/5 ">
+          <div className="flex-col flex items-center pb-2 justify-start w-full h-full ">
+            <div className="w-full flex items-center flex-col h-4/5 ">
               <div className="w-full flex items-center justify-center  h-1/2">
                 <Image
                   quality={100}
-                  className="w-[78%] flex items-center justify-center h-full"
+                  className="w-[60%] flex items-center justify-center"
                   src={bannerInformations}
                   alt="Let's Forever"
                   width={100}
@@ -129,7 +129,7 @@ export default function GetInformations({ userData }: BlockProps) {
                 />
               </div>
               <div className="flex items-start gap-6 w-4/5 justify-start pt-4 flex-col h-[42,5%]]">
-                <h1 className="text-[26px] text-left font-medium  ">
+                <h1 className="text-[24px] text-left font-medium  ">
                   Informe seu nome e e-mail para ter acesso ao seu resultado.
                 </h1>
                 <div className="relative w-full ">

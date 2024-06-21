@@ -53,7 +53,7 @@ export default function Home() {
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center w-full"
+              className="text-3xl font-semibold text-center w-full"
             >
               Protocolo Let's Go Forever 60 dias
             </motion.h1>
