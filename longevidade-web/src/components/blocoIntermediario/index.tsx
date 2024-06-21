@@ -29,7 +29,7 @@ export default function BlockIntermediario({
     >
       <HeaderHome backgroundColor="bg-primary-color" />
       <div className="flex-col flex items-center pb-2 justify-start w-full h-3/4">
-        <div className="w-full flex items-center px-10 justify-center h-[8%]">
+        <div className="w-full flex items-center px-10 justify-center h-[8%] pb-5">
           <ul className="w-full justify-between items-center flex h-full">
             <li className="flex gap-3 items-center justify-center">
               <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">

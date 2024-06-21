@@ -305,10 +305,10 @@ export default function Questions() {
     setUserData(updatedUserData);
   };
   const getImageSrc = () => {
-    
+
     if (blocoTwo) {
       console.log("entrou");
-      
+
       return wine;
     } else if (blocoThree) {
       return academy;
@@ -386,40 +386,38 @@ export default function Questions() {
         />
       )}
       <div
-        className={` ${
-          finshe === true ||
-          oneBlock === true ||
-          secondBloc === true ||
-          thirdBlco === true
+        className={` ${finshe === true ||
+            oneBlock === true ||
+            secondBloc === true ||
+            thirdBlco === true
             ? "[display:none]"
             : ""
-        } w-full h-full overflow-hidden`}
+          } w-full h-full `}
       >
         <HeaderHome backgroundColor="#FFF" />
         <div className="w-full h-full ">
-          <div className="w-full flex justify-start items-center px-10 h-[10%]">
-            <div className="w-16 h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
-              <h1 className="text-2xl font-black">
+          <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
+            <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
+              <h1 className="flex text-2xl font-black">
                 {currentQuestion && currentQuestion.id_pergunta}
               </h1>
-              <Image
-                className={`${
-                  finshe === true ||
+
+            </div>
+            <Image
+              className={`${finshe === true ||
                   secondBloc === true ||
                   thirdBlco === true ||
                   fourthBlco === true ||
                   oneBlock === true
-                    ? "[display:none]"
-                    : ""
-                } absolute left-1/2 w-12 ml-28 ${
-                  oneBlock && finshe ? "hidden" : "flex"
+                  ? "[display:none]"
+                  : ""
+                } relative left-[20%] w-12 ml-28 ${oneBlock && finshe ? "hidden" : "flex"
                 }`}
-                src={getImageSrc()}
-                width={100}
-                height={100}
-                alt=""
-              />
-            </div>
+              src={getImageSrc()}
+              width={100}
+              height={100}
+              alt=""
+            />
           </div>
           <div className="flex flex-col gap-4 w-full px-10 h-full overflow-hidden">
             <h1 className="text-3xl font-bold">{currentQuestion.descricao}</h1>
@@ -445,17 +443,16 @@ export default function Questions() {
                           perguntaNumber: currentQuestion.pergunta,
                         })
                       }
-                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                        !inputValue && "opacity-50 cursor-not-allowed"
-                      }`}
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${!inputValue && "opacity-50 cursor-not-allowed"
+                        }`}
                       disabled={!inputValue}
                     >
                       confirmar
                     </button>
                   </>
                 ) : currentQuestion.descricao.startsWith(
-                    "Qual sua altura (em metros)?"
-                  ) ? (
+                  "Qual sua altura (em metros)?"
+                ) ? (
                   <>
                     <input
                       type="text"
@@ -473,17 +470,16 @@ export default function Questions() {
                           perguntaNumber: currentQuestion.pergunta,
                         })
                       }
-                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                        !inputValue && "opacity-50 cursor-not-allowed"
-                      }`}
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${!inputValue && "opacity-50 cursor-not-allowed"
+                        }`}
                       disabled={!inputValue}
                     >
                       confirmar
                     </button>
                   </>
                 ) : currentQuestion.descricao.startsWith(
-                    "Quanto você acredita que pesa atualmente(em kg)?"
-                  ) ? (
+                  "Quanto você acredita que pesa atualmente(em kg)?"
+                ) ? (
                   <>
                     <input
                       type="number"
@@ -504,9 +500,8 @@ export default function Questions() {
                           perguntaNumber: currentQuestion.pergunta,
                         })
                       }
-                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${
-                        !inputValue && "opacity-50 cursor-not-allowed"
-                      }`}
+                      className={`w-36 h-10 bg-primary-color text-[#000] font-medium rounded-lg ${!inputValue && "opacity-50 cursor-not-allowed"
+                        }`}
                       disabled={!inputValue}
                     >
                       confirmar
@@ -524,9 +519,8 @@ export default function Questions() {
                         perguntaNumber: currentQuestion.pergunta,
                       })
                     }
-                    className={`${
-                      data.resposta.length > 10 ? "h-16 px-2" : "h-16"
-                    } w-full h-10 rounded-lg bg-primary-color text-black`}
+                    className={`${data.resposta.length > 10 ? "h-16 px-2" : "h-16"
+                      } w-full h-10 rounded-lg bg-primary-color text-black`}
                   >
                     {data.resposta}
                   </button>

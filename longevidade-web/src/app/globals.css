@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 body{
-  height: 100%; 
+  display: flex;
   width: 100%;
+  
 }
 
 main{
-
+  display: flex;
   height: 100%;
   width: 100%;
+}
+
+button{
+  font-size: 14px;
 }
 
 .apexcharts-toolbar{
@@ -23,3 +28,4 @@ main{
     text-wrap: balance;
   }
 }
+
