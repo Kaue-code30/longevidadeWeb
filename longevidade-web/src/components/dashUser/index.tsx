@@ -13,8 +13,7 @@ import { ResponseAPI } from "@/interfaces/userData";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_60_dias}:ResponseAPI) {
-  console.log(porcentagem_atual);
-  console.log(Number(projecao_30_dias));
+
   
   const state = {
     options: {
@@ -89,7 +88,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
         data: [
           { x: 1, y: Number(porcentagem_atual), label: 'Ponto 1' },
           { x: 2, y: Number(projecao_30_dias), label: 'Ponto 2' },
-          { x: 3, y: Number(projecao_60_dias), label: 'Ponto 3' }
+          { x: 3, y: Number(projecao_60_dias?.toFixed(4)), label: 'Ponto 3' }
         ],
       },
     ]
@@ -118,7 +117,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
             options={state.options}
             series={state.series}
             type="area"
-            width="300"
+            width="330"
             height="250"
           />
         </div>
