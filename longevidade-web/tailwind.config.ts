@@ -12,11 +12,6 @@ const config: Config = {
       "second-color": "#f2f7f0",
       "third-color": "#F98C0B"
     }
-    ,
-    extend: {
-      backgroundImage: {
-      },
-    },
   },
   plugins: [],
 };

@@ -335,7 +335,7 @@ export default function Questions() {
   return (
     <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
-      className="h-full bg-no-repeat overflow-auto  bg-contain bg-bottom w-full bg-second-color"
+      className="h-[120vh] bg-no-repeat overflow-auto  bg-contain bg-bottom w-full bg-second-color"
     >
       {oneBlock && (
         <BlockIntermediario
@@ -411,7 +411,7 @@ export default function Questions() {
                   oneBlock === true
                     ? "[display:none]"
                     : ""
-                } absolute w-14 ml-24 ${
+                } absolute left-1/2 w-12 ml-28 ${
                   oneBlock && finshe ? "hidden" : "flex"
                 }`}
                 src={getImageSrc()}
