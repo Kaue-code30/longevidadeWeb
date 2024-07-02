@@ -40,6 +40,10 @@ export default function Questions() {
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
 
+  const voltar = () => {
+    setCurrentQuestionIndex(currentQuestionIndex - 1)
+  }
+
   const calculateImc = () => {
     const peso = userData.peso;
     const altura = userData.altura;
@@ -341,8 +345,8 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerOneBlock.src}
-          title={`Seu IMC é: ${calculateImc()?.imc}`}
-          text={`A descrição do seu IMC é: ${calculateImc()?.descricao}`}
+          title={`Muito bem! Essas perguntas iniciais começam a montar seu score de saúde.`}
+          text={`Até aqui, destacamos seu Índice de Massa Corpórea (IMC) é de: ${calculateImc()?.imc}`}
           stage={1}
           setBlock={setBlock}
         />
@@ -351,8 +355,10 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerTwoBlock.src}
-          text="teste 1"
-          title="Lorem Ipsum is simply dummy text."
+          text="Cada resposta é incorporada ao nosso algoritimo para classificar sua saúde."
+          secondText="conhecer a si próprio agora é o primeiro passo para melhorar amanhã!"
+          thirText="Vamos continuar para a próxima pergunta."
+          title="Parabéns por ter chegado até aqui!"
           stage={2}
           setBlock={setBlock}
         />
@@ -361,8 +367,9 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerThreeBlock.src}
-          text="teste 2"
-          title="Lorem Ipsum is simply dummy text."
+          text="Falta pouco agora, continue firme no questionário e receba sua avaliação agora e grátis."
+          title="Essas Informações de atividade física e sono foram muito importante para definir seu score de saúde."
+          secondText="Vamos continuar para a próxima pergunta."
           stage={3}
           setBlock={setBlock}
         />
@@ -371,8 +378,8 @@ export default function Questions() {
         <BlockIntermediario
           arrayQuestions={blocoAtual}
           banner={bannerFour.src}
-          text="Quarto bloco"
-          title="Lorem Ipsum is simply dummy text."
+          text="Apenas mais 4 perguntas para você finalizar o questionário!"
+          title="Ter os exames preventivos em dia é fundamento para reduzir nossos riscos de saúde."
           stage={4}
           setBlock={setBlock}
         />
@@ -380,21 +387,26 @@ export default function Questions() {
       {finshe && (
         <BlockEncerramento
           userData={userData}
-          stage={4}
-          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-          title="Você completou todas as etapas."
+          stage={5}
+          text="Você completou todas as etapas e já processamos suas respostas em nossos algoritmos. "
+          secondText="Receba agora mesmo e grátis o seu SCORE DE SAÚDE e o potencial que você pode alcançar apenas melhorando seu estilo de vida."
+          title="Parabéns!"
+          
         />
       )}
       <div
         className={` ${finshe === true ||
-            oneBlock === true ||
-            secondBloc === true ||
-            thirdBlco === true
-            ? "[display:none]"
-            : ""
+          oneBlock === true ||
+          secondBloc === true ||
+          thirdBlco === true
+          ? "[display:none]"
+          : ""
           } w-full h-full `}
       >
         <HeaderHome backgroundColor="#FFF" />
+        {currentQuestionIndex >= 1 ? (
+          <button className="absolute w-32 h-10 mt-5 ml-7 text-[#366A48] font-medium rounded-lg border border-[#366A48] top-14 left-56" onClick={() => voltar()}>voltar</button>
+        ) : ""}
         <div className="w-full h-full ">
           <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
             <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
@@ -405,12 +417,12 @@ export default function Questions() {
             </div>
             <Image
               className={`${finshe === true ||
-                  secondBloc === true ||
-                  thirdBlco === true ||
-                  fourthBlco === true ||
-                  oneBlock === true
-                  ? "[display:none]"
-                  : ""
+                secondBloc === true ||
+                thirdBlco === true ||
+                fourthBlco === true ||
+                oneBlock === true
+                ? "[display:none]"
+                : ""
                 } relative left-[20%] w-12 ml-[165px] ${oneBlock && finshe ? "hidden" : "flex"
                 }`}
               src={getImageSrc()}
@@ -459,7 +471,7 @@ export default function Questions() {
                       required={true}
                       value={inputValueAltura}
                       onChange={handleHeightInputChange}
-                      placeholder="00,00 Mt"
+                      placeholder="00,00M"
                       className="border-b-[1px] px-2 border-[#D1D5DB] bg-[#0000] h-10"
                     />
                     <button

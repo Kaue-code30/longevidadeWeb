@@ -86,15 +86,13 @@ export default function GetInformations({ userData }: BlockProps) {
         </motion.div>
       )}
       <div
-        className={` ${
-          response?.data.porcentagem_atual ? "[display:none]" : ""
-        } w-full h-full`}
+        className={` ${response?.data.porcentagem_atual ? "[display:none]" : ""
+          } w-full h-full`}
       >
         <div
           style={{ backgroundImage: `url(${arvoreBranco.src})` }}
-          className={`h-full items-center justify-center ${
-            response?.data.porcentagem_atual ? "[display:none]" : "flex"
-          } flex-col gap-3 bg-contain bg-no-repeat bg-bottom z-10 w-full  bg-second-color`}
+          className={`h-full items-center justify-center ${response?.data.porcentagem_atual ? "[display:none]" : "flex"
+            } flex-col gap-3 bg-contain bg-no-repeat bg-bottom z-10 w-full  bg-second-color`}
         >
           {isPending && (
             <div className="w-full flex items-center justify-center absolute z-10  h-screen bg-[#00000068]">
@@ -130,8 +128,11 @@ export default function GetInformations({ userData }: BlockProps) {
               </div>
               <div className="flex items-start gap-6 w-4/5 justify-start pt-4 flex-col h-[42,5%]]">
                 <h1 className="text-[24px] text-left font-medium  ">
-                  Informe seu nome e e-mail para ter acesso ao seu resultado.
+                  Receba agora mesmo seu resultado. É grátis!
                 </h1>
+                <p>
+                  Informe seu nome e e-mail para acessar seu ESCORE DE SAÚDE e assinar nossa newsletter semana sobre longevidade saudável.
+                </p>
                 <div className="relative w-full ">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <Image
@@ -180,7 +181,8 @@ export default function GetInformations({ userData }: BlockProps) {
                 </button>
                 <Link
                   className="w-full flex items-center justify-center font-medium"
-                  href={""}
+                  href={"/politica-privacidade"}
+                  target="_blank"
                 >
                   {" "}
                   Política de Privacidade
