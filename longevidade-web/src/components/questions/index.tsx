@@ -339,7 +339,7 @@ export default function Questions() {
   return (
     <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
-      className="h-[120vh] bg-no-repeat overflow-auto  bg-contain bg-bottom w-full bg-second-color"
+      className="h-[120vh] bg-no-repeat overflow-auto overflow-x-hidden bg-contain bg-bottom w-full bg-second-color"
     >
       {oneBlock && (
         <BlockIntermediario
