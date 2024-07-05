@@ -17,17 +17,17 @@ export default function Home() {
   };
 
   return (
-    <section className="flex flex-col justify-center gap-10 items-center w-full h-screen">
+    <section className="flex flex-col justify-center gap-10 items-center w-full h-[100vh]">
       {questionsInit ? (
         <Questions />
       ) : (
         <>
-          <div className="flex flex-col h-full justify-center items-center">
-            <div className="flex flex-col px-8 h-full justify-center items-center">
-              <div className="flex items-center pt-5 justify-center w-full h-[100px]">
-                <Image alt="" width={100} height={100} src={logo} />
+          <div className="flex flex-col w-full h-full justify-end items-center">
+            <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:'center'}} className=" px-8 h-full ">
+              <div className="flex items-center pt-5 justify-center w-full h-[150px]">
+                <Image className="w-[150px]" alt="" width={100} height={100} src={logo} />
               </div>
-              <div className="flex text-center flex-col gap-5 pt-5 h-full w-full">
+              <div className="flex text-center justify-start flex-col gap-5 pt-20 h-full w-full">
                 <h1 className="text-2xl font-bold">
                   Conheça a sua saúde!
                 </h1>
