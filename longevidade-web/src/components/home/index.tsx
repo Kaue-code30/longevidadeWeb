@@ -17,78 +17,34 @@ export default function Home() {
   };
 
   return (
-    <section className="flex justify-center gap-10 items-center flex-col w-full h-screen">
+    <section className="flex flex-col justify-center gap-10 items-center w-full h-screen">
       {questionsInit ? (
         <Questions />
       ) : (
         <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center pt-10 px-10 justify-center w-full h-auto"
-          >
-            <Image
-              className="pt-10 w-1/3"
-              src={logo}
-              alt="Let's Go Forever Image"
-              width={100}
-              height={100}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-full gap-6 px-10 flex items-center justify-start flex-col"
-          >
-            <motion.h1
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl font-medium text-center w-full"
-            >
-              Conheça a sua saúde!
-            </motion.h1>
-            <Image
-              className="w-4/5"
-              src={bannerHome}
-              alt="Let's Go Forever Image"
-              width={100}
-              height={100}
-            />
-
-            <motion.p
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-lg text-center font-normal"
-            >
-              Responda a esse questionário e receba na hora seu <span className="text-[#ff4f4f]">score de saúde</span>
-            </motion.p>
-            <motion.p
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.5 }}
-              className=" text-center scroll-pt-16 text-lg font-normal"
-            >
-              <span className="text-[#ff4f4f] " >É gratis</span>   e você ainda ganha o quanto seu score pode melhorar com ajustes no seu estilo de vida.
-            </motion.p>
-          </motion.div>
-          <div
-            className="h-1/5 flex px-10 items-start justify-center bg-second-color bg-no-repeat bg-cover w-full"
-            style={{ backgroundImage: `url(${backgroundLast.src})` }}
-          >
-            <motion.button
-              onClick={() => handleQuestionInit()}
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="w-full shadow-md flex items-center justify-center gap-2 h-12 bg-third-color rounded-lg text-second-color font-medium -mt-3"
-            >
-              {questionsInit ? "Voltar" : "Começar agora"}{" "}
-              <FaArrowRightLong className="text-xl" />
-            </motion.button>
+          <div className="flex flex-col h-full justify-center items-center">
+            <div className="flex flex-col px-8 h-full justify-center items-center">
+              <div className="flex items-center pt-5 justify-center w-full h-[100px]">
+                <Image alt="" width={100} height={100} src={logo} />
+              </div>
+              <div className="flex text-center flex-col gap-5 pt-5 h-full w-full">
+                <h1 className="text-2xl font-bold">
+                  Conheça a sua saúde!
+                </h1>
+                <div className="flex items-center pt-5 justify-center w-full h-1/4">
+                  <Image className="w-3/4" alt="" width={100} height={100} src={bannerHome} />
+                </div>
+                <h2 className="text-center pt-5 text-base">
+                  Responda a esse questionário e receba na hora seu score de saúde.
+                </h2>
+                <h2 className="text-center text-base">
+                  <span className="font-medium">
+                    É grátis
+                  </span>  e você ainda ganha o quanto seu score pode melhorar com ajustes no seu estilo de vida.
+                </h2>
+                <button onClick={() => setQuestionsInit(true)} className="w-full  h-10 flex items-center justify-center text-second-color gap-2 rounded-lg bg-third-color">começar agora <FaArrowRightLong/> </button>
+              </div>
+            </div>
           </div>
         </>
       )}
