@@ -392,7 +392,7 @@ export default function Questions() {
           text="Você completou todas as etapas e já processamos suas respostas em nossos algoritmos. "
           secondText="Receba agora mesmo e grátis o seu SCORE DE SAÚDE e o potencial que você pode alcançar apenas melhorando seu estilo de vida."
           title="Parabéns!"
-          
+
         />
       )}
       <div
@@ -406,7 +406,9 @@ export default function Questions() {
       >
         <HeaderHome backgroundColor="#FFF" />
         {currentQuestionIndex >= 1 ? (
-          <button className="relative w-32 h-10 mt-5 ml-7 text-[#366A48] font-medium rounded-lg border border-[#366A48] -top-[100px] left-44" onClick={() => voltar()}>voltar</button>
+          <button style={{
+            position: "relative", top: " -14%", left: "50%"
+          }} className="w-32 h-10 mt-5 ml-7 text-[#366A48] font-medium rounded-lg border border-[#366A48]" onClick={() => voltar()}>voltar</button>
         ) : ""}
         <div className="w-full h-full ">
           <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
