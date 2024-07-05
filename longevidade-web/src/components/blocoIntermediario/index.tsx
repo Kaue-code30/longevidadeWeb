@@ -29,7 +29,7 @@ export default function BlockIntermediario({
   return (
     <div
       style={{ backgroundImage: `url(${arvoreBranco.src})` }}
-      className="h-[110vh] bg-contain bg-no-repeat bg-bottom z-10 w-full overflow-hidden bg-primary-color"
+      className="h-auto pb-10 bg-contain bg-no-repeat bg-bottom z-10 w-full overflow-auto bg-primary-color"
     >
       <HeaderHome backgroundColor="bg-primary-color" />
       <div className="flex-col flex items-center pb-2 justify-start w-full h-3/4">

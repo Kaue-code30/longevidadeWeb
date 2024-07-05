@@ -70,9 +70,9 @@ export default function Home() {
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5 }}
-              className=" text-center text-lg font-normal"
+              className=" text-center -pt-10 text-lg font-normal"
             >
-              <span className="text-[#ff4f4f]" >É gratis</span>   e você ainda ganha o quanto seu score pode melhorar com ajustes no seu estilo de vida.
+              <span className="text-[#ff4f4f] " >É gratis</span>   e você ainda ganha o quanto seu score pode melhorar com ajustes no seu estilo de vida.
             </motion.p>
           </motion.div>
           <div

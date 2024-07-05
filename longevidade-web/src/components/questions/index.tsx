@@ -52,27 +52,27 @@ export default function Questions() {
     if (imc < 18.5) {
       result = {
         imc: imc.toFixed(2),
-        descricao: "Magreza",
+        descricao: "Seu Índice de Massa Corpórea (IMC) está abaixo do normal. Isso pode indicar que você está abaixo do peso recomendado para sua altura. Fique atento à sua alimentação! Vamos seguir com esse questionário para termos uma visão mais ampla sobre sua saúde",
       };
     } else if (imc > 18.5 && imc <= 24.9) {
       result = {
         imc: imc.toFixed(2),
-        descricao: "Normal",
+        descricao: "Seu Índice de Massa Corpórea (IMC) é considerado normal, parabéns! Você está com o peso recomendado para a sua altura!",
       };
     } else if (imc > 24.9 && imc <= 29.9) {
       result = {
         imc: imc.toFixed(2),
-        descricao: "Sobrepeso",
+        descricao: "Seu Índice de Massa Corpórea (IMC) está acima do recomendado. Você está classificado como sobrepeso, de acordo com a Organização Mundial de Saúde. Você pode reverter essa condição, só depende de você!",
       };
     } else if (imc > 29.9 && imc <= 39.9) {
       result = {
         imc: imc.toFixed(2),
-        descricao: "Obesidade",
+        descricao: "Seu IMC está bem acima do recomendado. Você está classificado como obeso, de acordo com a Organização Mundial de Saúde. Com força de vontade e uma equipe de saúde, você tem tudo para reverter essa condição!",
       };
     } else if (imc > 39.9) {
       result = {
         imc: imc.toFixed(2),
-        descricao: "Obesidade grave",
+        descricao: "Seu IMC está muito acima do recomendado. Você está classificado como obeso mórbido, de acordo com a Organização Mundial de Saúde. Vamos seguir nesse questionário e ver como podemos te ajudar para uma jornada mais saudável.",
       };
     }
     return result;
@@ -347,6 +347,7 @@ export default function Questions() {
           banner={bannerOneBlock.src}
           title={`Muito bem! Essas perguntas iniciais começam a montar seu score de saúde.`}
           text={`Até aqui, destacamos seu Índice de Massa Corpórea (IMC) é de: ${calculateImc()?.imc}`}
+          secondText={`${calculateImc()?.descricao}`}
           stage={1}
           setBlock={setBlock}
         />
@@ -405,7 +406,7 @@ export default function Questions() {
       >
         <HeaderHome backgroundColor="#FFF" />
         {currentQuestionIndex >= 1 ? (
-          <button className="absolute w-32 h-10 mt-5 ml-7 text-[#366A48] font-medium rounded-lg border border-[#366A48] top-14 left-56" onClick={() => voltar()}>voltar</button>
+          <button className="relative w-32 h-10 mt-5 ml-7 text-[#366A48] font-medium rounded-lg border border-[#366A48] -top-[100px] left-44" onClick={() => voltar()}>voltar</button>
         ) : ""}
         <div className="w-full h-full ">
           <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
@@ -423,7 +424,7 @@ export default function Questions() {
                 oneBlock === true
                 ? "[display:none]"
                 : ""
-                } relative left-[20%] w-12 ml-[165px] ${oneBlock && finshe ? "hidden" : "flex"
+                } relative left-[20%] w-12 ml-[125px] ${oneBlock && finshe ? "hidden" : "flex"
                 }`}
               src={getImageSrc()}
               width={100}
@@ -432,7 +433,7 @@ export default function Questions() {
             />
           </div>
           <div className="flex flex-col gap-4 w-full px-10 h-full overflow-hidden">
-            <h1 className="text-3xl font-medium">{currentQuestion.descricao}</h1>
+            <h1 className="text-lg font-medium">{currentQuestion.descricao}</h1>
             {currentQuestion.respostas.map((data, index) => (
               <>
                 {currentQuestion.descricao.startsWith(
