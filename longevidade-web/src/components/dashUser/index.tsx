@@ -88,14 +88,14 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
         data: [
           { x: 1, y: Number(porcentagem_atual), label: 'Ponto 1' },
           { x: 2, y: Number(projecao_30_dias), label: 'Ponto 2' },
-          { x: 3, y: Number(projecao_60_dias?.toFixed(4)), label: 'Ponto 3' }
+          { x: 3, y: Number(projecao_60_dias?.toFixed(0)), label: 'Ponto 3' }
         ],
       },
     ]
   };
 
   return (
-    <motion.div className="h-auto pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
+    <motion.div className="h-[280vh] pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
       <HeaderFinal backgroundColor="bg-primary-color" />
       <div className="w-[85%] flex flex-col gap-5 justify-center items-center">
         <h1 className="text-2xl flex flex-col w-full gap-5 font-medium">
@@ -109,7 +109,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
           industry. 
         </p>
       </div>
-      <div className="w-[85%] h-full overflow-auto flex flex-col gap-5">
+      <div className="w-[85%] h-full overflow-hidden flex flex-col gap-5">
         <div className="w-full flex flex-col justify-center items-start gap-3 pt-8 p-5 h-[400px] rounded-2xl bg-second-color">
           <h1 className="text-[#366A48] text-2xl font-extrabold">{porcentagem_atual} Pts</h1>
           <h2 className="w-4/5">Você pode subir {(projecao_30_dias && porcentagem_atual)? (Number(projecao_30_dias.toFixed(2)) - Number(porcentagem_atual.toFixed(2))).toFixed(2) : ""} pontos em 30 dias</h2>
@@ -117,7 +117,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
             options={state.options}
             series={state.series}
             type="area"
-            width="330"
+            width="280"
             height="250"
           />
         </div>
@@ -174,7 +174,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
             </button>
           </Link>
         </div>
-        <div className="w-full h-[500px] gap-10 rounded-2xl bg-second-color">
+        <div className="w-full h-[550px] gap-10 rounded-2xl bg-second-color">
           <div className="w-full h-2/5 rounded-t-2xl">
             <Image
               className="w-full rounded-t-2xl"
@@ -184,7 +184,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
               alt="Let's go Forever"
             />
           </div>
-          <div className="flex w-full h-auto pt-10  flex-col gap-3 p-5">
+          <div className="flex w-full h-auto pt-5  flex-col gap-3 p-5">
             <h2 className="text-2xl">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.

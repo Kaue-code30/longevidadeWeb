@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <section className="flex justify-center items-center flex-col w-full h-screen">
+    <section className="flex justify-center gap-10 items-center flex-col w-full h-screen">
       {questionsInit ? (
         <Questions />
       ) : (
@@ -29,7 +29,7 @@ export default function Home() {
             className="flex items-center pt-10 px-10 justify-center w-full h-auto"
           >
             <Image
-              className="w-3/4"
+              className="pt-10 w-1/3"
               src={logo}
               alt="Let's Go Forever Image"
               width={100}
@@ -40,7 +40,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-full h-[70%] gap-6 px-10 flex items-center justify-center flex-col"
+            className="w-full h-full gap-6 px-10 flex items-center justify-start flex-col"
           >
             <motion.h1
               initial={{ y: 50 }}
@@ -70,7 +70,7 @@ export default function Home() {
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5 }}
-              className=" text-center -pt-10 text-lg font-normal"
+              className=" text-center scroll-pt-16 text-lg font-normal"
             >
               <span className="text-[#ff4f4f] " >É gratis</span>   e você ainda ganha o quanto seu score pode melhorar com ajustes no seu estilo de vida.
             </motion.p>
