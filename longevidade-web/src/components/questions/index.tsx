@@ -407,7 +407,7 @@ export default function Questions() {
         <HeaderHome backgroundColor="#FFF" />
         {currentQuestionIndex >= 1 ? (
           <button style={{
-            position: "relative", top: " -14%", left: "50%"
+            position: "relative", top: " -14% !important", left: "50% !important"
           }} className="w-32 h-10  text-[#366A48] font-medium rounded-lg border border-[#366A48]" onClick={() => voltar()}>voltar</button>
         ) : ""}
         <div className="w-full h-full ">
