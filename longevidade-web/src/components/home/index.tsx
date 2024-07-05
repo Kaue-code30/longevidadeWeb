@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <section className="flex flex-col justify-center gap-10 items-center w-full h-[100vh]">
+    <section className="flex flex-col justify-center overflow-hidden gap-10 items-center w-full h-[100vh]">
       {questionsInit ? (
         <Questions />
       ) : (
