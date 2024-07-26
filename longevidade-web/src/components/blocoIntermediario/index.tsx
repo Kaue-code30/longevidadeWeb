@@ -30,7 +30,7 @@ export default function BlockIntermediario({
 }: BlockProps) {
   return (
     <div
-      className="h-auto pb-[100px] z-10 w-full overflow-auto "
+      className="h-full  z-10 w-full overflow-hidden "
     >
       <HeaderHome backgroundColor="bg-primary-color" />
       <div className="flex-col flex items-center justify-start w-full h-full">
@@ -67,7 +67,7 @@ export default function BlockIntermediario({
             </li>
           </ul>
         </div>
-        <div className="w-full flex items-center justify-center flex-col h-auto">
+        <div className="w-full flex items-center justify-center flex-col">
           <div className=" flex w-full h-[160px] z-50">
             <Image
               quality={100}
@@ -112,7 +112,7 @@ export default function BlockIntermediario({
                   Vamos seguir com esse questionário para termos uma visão mais ampla sobre sua saúde.
                 </p>
               )}
-              <div className="flex items-center justify-center top-[86%] absolute bg-[#366A48] w-full h-24">
+              <div className="flex items-center justify-center top-[90%] fixed bg-[#366A48] w-full h-24">
 
 
                 <button
