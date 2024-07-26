@@ -412,12 +412,12 @@ export default function Questions() {
         <HeaderHome backgroundColor="#FFF" />
         {currentQuestionIndex >= 1 ? (
           <div style={{
-            position: "relative", top: "-10%", left: "64%"
+            position: "relative", top: "-8%", left: "64%"
           }} >
             <button className="w-32 h-10 flex items-center justify-center gap-2 text-[#366A48] font-medium rounded-lg " onClick={() => voltar()}> <BiArrowBack className="font-bold"/> voltar</button>
           </div>
         ) : ""}
-        <div className="w-full h-full ">
+        <div className="w-full mb-20 h-full ">
           <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
             <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
               <h1 className="flex text-2xl font-bold">

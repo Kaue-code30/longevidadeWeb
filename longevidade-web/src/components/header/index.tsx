@@ -8,7 +8,7 @@ export interface HeaderProps {
 
 export default function HeaderHome({backgroundColor} : HeaderProps ) {
   return (
-    <header className={`h-[15%] pt-10 mb-5 w-full bg-[${backgroundColor}] `}>
+    <header className={`h-[15%] pt-5 w-full bg-[${backgroundColor}] `}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.8}} className="flex justify-start px-10 items-center w-full h-full ">
         <Image
           className="w-24 "
