@@ -35,39 +35,39 @@ export default function BlockEncerramento({
         <div className="flex-col flex items-center pb-2 justify-start w-full h-3/4 ">
           <div className="w-full flex items-center px-10 justify-center h-[8%] pb-5 ">
             <ul className="w-full justify-between items-center flex h-full">
-            <li className="flex gap-3 items-center justify-center">
-              <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">
-                <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
-              </div>
-              <div className="w-4 h-[1px] bg-[#366A48]"></div>
-            </li>
-            <li className={`flex ${stage === 1 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">
-                <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
-              </div>
-              <div className="w-4 h-[1px] bg-[#366A48]"></div>
-            </li>
-            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">
-                <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
-              </div>
-              <div className="w-4 h-[1px] bg-[#366A48]"></div>
-            </li>
-            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">
-                <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
-              </div>
-              <div className="w-4 h-[1px] bg-[#366A48]"></div>
-            </li>
-            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-7 h-7 bg-[#366A48] rounded-full">
-                <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
-              </div>
-            </li>
+              <li className="flex gap-3 items-center justify-center">
+                <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+                  <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
+                </div>
+                <div className="w-4 h-[1px] bg-[#366A48]"></div>
+              </li>
+              <li className={`flex ${stage === 1 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
+                <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+                  <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
+                </div>
+                <div className="w-4 h-[1px] bg-[#366A48]"></div>
+              </li>
+              <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
+                <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+                  <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
+                </div>
+                <div className="w-4 h-[1px] bg-[#366A48]"></div>
+              </li>
+              <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
+                <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+                  <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
+                </div>
+                <div className="w-4 h-[1px] bg-[#366A48]"></div>
+              </li>
+              <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
+                <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+                  <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
+                </div>
+              </li>
             </ul>
           </div>
           <div className="w-full flex items-center justify-center  flex-col h-4/5 ">
-            <div className="w-full flex items-center justify-center  h-1/2">
+            <div className="w-full mt-20 flex items-center justify-center  h-1/2">
               <Image
                 quality={100}
                 className="w-[90%] flex items-center justify-center h-full"
@@ -77,23 +77,28 @@ export default function BlockEncerramento({
                 height={100}
               />
             </div>
-            <div className="flex items-start gap-4 w-4/5 justify-start pt-4 flex-col h-1/2">
-              <h1 className="text-3xl text-left font-medium  ">{title}</h1>
-              <p className="text-base">{text}</p>
-              {secondText && (
-                <p  className="text-base">
-                  {secondText}
-                </p>
-              )}
+            <div className="flex bg-second-color items-center gap-4 w-full justify-start pb-14 pt-4 flex-col h-full">
+              <div className="w-[80%] flex gap-4  items-center justify-center flex-col">
 
-              <button
-                onClick={() => {
-                  setGetInformations(true);
-                }}
-                className="w-full relative flex p-3 items-center justify-center gap-2 bg-third-color text-second-color font-medium   rounded-lg "
-              >
-               ver meu resultado <FaArrowRight className="text-lg" />
-              </button>
+
+                <h1 className="text-2xl w-full text-left font-bold  text-third-color ">{title}</h1>
+                <p className="text-base font-medium text-[#22382A]">{text}</p>
+                {secondText && (
+                  <p className="text-base">
+                    Receba agora mesmo e <span className="font-medium">grátis</span>  o seu <span className="font-medium"> SCORE DE SAÚDE</span>  e o potencial que você pode alcançar apenas melhorando seu estilo de vida.
+                  </p>
+                )}
+                <div className="flex items-center justify-center top-[90%]  absolute bg-[#366A48] w-full h-24">
+                  <button
+                    onClick={() => {
+                      setGetInformations(true);
+                    }}
+                    className="w-[80%] relative flex p-3 items-center justify-center gap-2 bg-third-color text-second-color font-medium   rounded-lg "
+                  >
+                    ver meu resultado <FaArrowRight className="text-lg" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ import { Userdata } from "@/interfaces/userData";
 import { answersData } from "@/interfaces/answer";
 import { motion } from "framer-motion";
 import BlockEncerramento from "../blocoEncerramento";
+import { BiArrowBack } from "react-icons/bi";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -339,7 +340,7 @@ export default function Questions() {
   return (
     <motion.section
       style={{ backgroundImage: `url(${backgroundLast.src})` }}
-      className="h-[120vh] bg-no-repeat overflow-auto overflow-x-hidden bg-contain bg-bottom w-full bg-second-color"
+      className={`h-[120vh] bg-no-repeat overflow-auto overflow-x-hidden bg-contain bg-bottom w-full bg-second-color `}
     >
       {oneBlock && (
         <BlockIntermediario
@@ -349,6 +350,7 @@ export default function Questions() {
           text={`Até aqui, destacamos seu Índice de Massa Corpórea (IMC) é de: ${calculateImc()?.imc}`}
           secondText={`${calculateImc()?.descricao}`}
           stage={1}
+          Imc
           setBlock={setBlock}
         />
       )}
@@ -361,6 +363,7 @@ export default function Questions() {
           thirText="Vamos continuar para a próxima pergunta."
           title="Parabéns por ter chegado até aqui!"
           stage={2}
+          Imc={false}
           setBlock={setBlock}
         />
       )}
@@ -372,6 +375,7 @@ export default function Questions() {
           title="Essas Informações de atividade física e sono foram muito importante para definir seu score de saúde."
           secondText="Vamos continuar para a próxima pergunta."
           stage={3}
+          Imc={false}
           setBlock={setBlock}
         />
       )}
@@ -382,6 +386,7 @@ export default function Questions() {
           text="Apenas mais 4 perguntas para você finalizar o questionário!"
           title="Ter os exames preventivos em dia é fundamento para reduzir nossos riscos de saúde."
           stage={4}
+          Imc={false}
           setBlock={setBlock}
         />
       )}
@@ -407,9 +412,9 @@ export default function Questions() {
         <HeaderHome backgroundColor="#FFF" />
         {currentQuestionIndex >= 1 ? (
           <div style={{
-            position: "relative", top: "-12%", left: "50%"
+            position: "relative", top: "-10%", left: "64%"
           }} >
-            <button className="w-32 h-10  text-[#366A48] font-medium rounded-lg border border-[#366A48]" onClick={() => voltar()}>voltar</button>
+            <button className="w-32 h-10 flex items-center justify-center gap-2 text-[#366A48] font-medium rounded-lg " onClick={() => voltar()}> <BiArrowBack className="font-bold"/> voltar</button>
           </div>
         ) : ""}
         <div className="w-full h-full ">
