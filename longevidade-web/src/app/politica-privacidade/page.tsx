@@ -19,7 +19,7 @@ export default function PoliticaPrivacidade() {
                         2. Informações Recolhidas: recolhemos informações de identificação pessoal e de saúde
                     </li>
                     <li className="font-normal">
-                        3. Uso das Informações: as informações recolhidas são utilizadas para fornecer e melhorar os serviços oferecidos pelo aplicativo, personalizar sua experiência e fornecer recomendações de saúde personalizadas, monitorar e analisar o uso do aplicativo para garantir a funcionalidade e segurança e cumprir obrigações legais e regulatórias.
+                        3. Uso das Informações: as informações recolhidas são utilizadas para envio de uma Newsletter semanal com conteúdo criado por nós, cujo envio pode ser cancelado a qualquer momento pelo usuário, e também para melhorar os serviços oferecidos pelo aplicativo, personalizar sua experiência, fornecer recomendações de saúde personalizadas, monitorar e analisar o uso do aplicativo para garantir a funcionalidade e segurança e cumprir obrigações legais e regulatórias.
                     </li>
                     <li className="font-normal">
                         4. Compartilhamento de Informações: garantimos que suas informações pessoais e de saúde nunca serão compartilhadas com empresas terceiras. As únicas exceções a esta regra são: (1) Cumprimento Legal: podemos divulgar suas informações se exigido por lei ou em resposta a um processo legal válido, como um mandado de busca, intimação ou ordem judicial e (2) Proteção de Direitos: podemos divulgar informações para proteger nossos direitos, privacidade, segurança, propriedade ou os de nossos usuários.
@@ -35,6 +35,9 @@ export default function PoliticaPrivacidade() {
                     </li>
                     <li className="font-normal">
                         8. Contato: se você tiver dúvidas ou preocupações sobre esta Política de Privacidade ou nossas práticas de informação, entre em contato conosco em letsgoforeverin5minutes@gmail.com.
+                    </li>
+                    <li className="font-normal">
+                        Obrigado por confiar na Let's Go Forever. Estamos comprometidos em proteger sua privacidade e garantir a segurança de suas informações.
                     </li>
 
                 </ul>
