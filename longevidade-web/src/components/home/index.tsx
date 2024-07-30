@@ -21,11 +21,11 @@ export default function Home() {
       ) : (
         <>
           <div className="flex flex-col w-full h-full justify-end items-center">
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: 'center' }} className=" px-8 w-full h-full ">
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: 'center' }} className=" px-8 pt-10 w-full h-full ">
               <div className="flex items-center justify-center w-full h-[100px]">
                 <Image className="w-[140px]" alt="" width={100} height={100} src={logo} />
               </div>
-              <div className="flex text-center items-center justify-start flex-col gap-5 pt-5 h-full w-full">
+              <div className="flex text-center items-center justify-start flex-col gap-5 pt-10 h-full w-full">
                 <h1 className="text-2xl text-black font-medium">
                   Conheça a sua saúde!
                 </h1>

@@ -433,7 +433,7 @@ export default function Questions() {
                 oneBlock === true
                 ? "[display:none]"
                 : ""
-                } relative left-[20%] w-12 ml-[125px] ${oneBlock && finshe ? "hidden" : "flex"
+                } relative left-[28%] w-12 ml-[125px] ${oneBlock && finshe ? "hidden" : "flex"
                 }`}
               src={getImageSrc()}
               width={100}

@@ -35,33 +35,33 @@ export default function BlockIntermediario({
       <HeaderHome backgroundColor="bg-primary-color" />
       <div className="flex-col flex items-center justify-start w-full h-full">
         <div className="w-full flex items-center px-10 justify-center h-[8%] pb-5">
-          <ul className="w-full justify-between items-center flex h-full">
+          <ul className="w-full justify-center gap-5 items-center flex h-full">
             <li className="flex gap-3 items-center justify-center">
-              <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+              <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+            <li className={`flex ${stage === 1 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+              <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+              <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+              <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-3 items-center justify-center`}>
-              <div className="flex items-center justify-center w-5 h-5 bg-[#366A48] rounded-full">
+            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+              <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
             </li>

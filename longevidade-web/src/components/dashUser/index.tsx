@@ -12,9 +12,9 @@ import { ResponseAPI } from "@/interfaces/userData";
 // Importação dinâmica do Chart com desativação da renderização no lado do servidor
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_60_dias}:ResponseAPI) {
+export default function DashUser({ porcentagem_atual, projecao_30_dias, projecao_60_dias }: ResponseAPI) {
 
-  
+
   const state = {
     options: {
       chart: {
@@ -95,24 +95,20 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
   };
 
   return (
-    <motion.div className="h-[280vh] pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
+    <motion.div className="h-[300vh] pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
       <HeaderFinal backgroundColor="bg-primary-color" />
+      <div className="w-full h-24 flex items-center fixed top-[86%] z-50 justify-center bg-third-color">
+        <button className="flex items-center justify-center w-4/5 bg-[#366A48] h-10 rounded-lg text-second-color gap-2">assinar plano agora <FaArrowRight className="font-medium text-second-color" /></button>
+      </div>
       <div className="w-[85%] flex flex-col gap-5 justify-center items-center">
-        <h1 className="text-2xl flex flex-col w-full gap-5 font-medium">
-          Seu resultado é de:{" "}
-          <span className="text-[#366A48] text-4xl font-extrabold">
-            {porcentagem_atual} pontos
-          </span>
+        <h1 className="text-2xl flex flex-col w-full font-medium">
+          Considerando suas  respostas sobre seu histórico familiar, pessoal e de hábitos de vida, seu <span className="text-[#366A48] font-semibold">SCORE DE SAÚDE</span>  atual é de:
         </h1>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. 
-        </p>
       </div>
       <div className="w-[85%] h-full overflow-hidden flex flex-col gap-5">
         <div className="w-full flex flex-col justify-center items-start gap-3 pt-8 p-5 h-[400px] rounded-2xl bg-second-color">
           <h1 className="text-[#366A48] text-2xl font-extrabold">{porcentagem_atual} Pts</h1>
-          <h2 className="w-4/5">Você pode subir {(projecao_30_dias && porcentagem_atual)? (Number(projecao_30_dias.toFixed(2)) - Number(porcentagem_atual.toFixed(2))).toFixed(2) : ""} pontos em 30 dias</h2>
+          <h2 className="w-4/5">Você pode subir {(projecao_30_dias && porcentagem_atual) ? (Number(projecao_30_dias.toFixed(2)) - Number(porcentagem_atual.toFixed(2))).toFixed(2) : ""} pontos em 30 dias</h2>
           <Chart
             options={state.options}
             series={state.series}
@@ -185,7 +181,7 @@ export default function DashUser({porcentagem_atual, projecao_30_dias, projecao_
             />
           </div>
           <div className="flex w-full h-auto pt-5  flex-col gap-3 p-5">
-            <h2 className="text-2xl">
+            <h2 className="text-2xl text-[#366A48] font-medium">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </h2>
