@@ -95,9 +95,9 @@ export default function DashUser({ porcentagem_atual, projecao_30_dias, projecao
   };
 
   return (
-    <motion.div className="h-[300vh] pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
+    <motion.div className="h-[260vh] pb-10 overflow-auto w-full flex items-center gap-5 justify-start flex-col bg-primary-color ">
       <HeaderFinal backgroundColor="bg-primary-color" />
-      <div className="w-full h-24 flex items-center fixed top-[86%] z-50 justify-center bg-third-color">
+      <div className="w-full h-32 pt-6 flex items-start fixed top-[87.8%] z-50 justify-center bg-third-color">
         <button className="flex items-center justify-center w-4/5 bg-[#366A48] h-10 rounded-lg text-second-color gap-2">assinar plano agora <FaArrowRight className="font-medium text-second-color" /></button>
       </div>
       <div className="w-[85%] flex flex-col gap-5 justify-center items-center">

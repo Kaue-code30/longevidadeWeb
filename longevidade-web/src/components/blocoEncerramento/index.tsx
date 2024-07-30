@@ -27,7 +27,7 @@ export default function BlockEncerramento({
   return (
     <div
       style={{ backgroundImage: `url(${arvoreBranco.src})` }}
-      className="h-full bg-contain bg-no-repeat bg-bottom z-10 w-full  bg-primary-color"
+      className="h-[110vh] bg-contain bg-no-repeat bg-bottom z-10 w-full  bg-primary-color"
     >
       {getInformations && <GetInformations userData={userData} />}
       <div className={` ${getInformations === true ? "[display:none]" : ""} w-full h-full`}>
@@ -66,7 +66,7 @@ export default function BlockEncerramento({
               </li>
             </ul>
           </div>
-          <div className="w-full flex items-center justify-center  flex-col h-4/5 ">
+          <div className="w-full flex items-center justify-center mt-10 flex-col h-4/5 ">
             <div className="w-full mt-20 flex items-center justify-center  h-1/2">
               <Image
                 quality={100}

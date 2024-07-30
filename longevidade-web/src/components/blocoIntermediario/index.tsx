@@ -30,12 +30,12 @@ export default function BlockIntermediario({
 }: BlockProps) {
   return (
     <div
-      className="h-full  z-10 w-full overflow-auto "
+      className="h-[110vh]  z-10 w-full  "
     >
       <HeaderHome backgroundColor="bg-primary-color" />
       <div className="flex-col flex items-center justify-start w-full h-full">
         <div className="w-full flex items-center px-10 justify-center h-[8%] pb-5">
-          <ul className="w-full justify-center gap-5 items-center flex h-full">
+          <ul className="w-full justify-center pt-2 pb-5 gap-5 items-center flex h-full">
             <li className="flex gap-3 items-center justify-center">
               <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>

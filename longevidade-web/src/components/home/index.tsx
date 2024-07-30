@@ -21,7 +21,7 @@ export default function Home() {
       ) : (
         <>
           <div className="flex flex-col w-full h-full justify-end items-center">
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: 'center' }} className=" px-8 pt-10 w-full h-full ">
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: 'center' }} className=" px-8 pt-2 w-full h-full ">
               <div className="flex items-center justify-center w-full h-[100px]">
                 <Image className="w-[140px]" alt="" width={100} height={100} src={logo} />
               </div>

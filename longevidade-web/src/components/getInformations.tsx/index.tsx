@@ -87,7 +87,7 @@ export default function GetInformations({ userData }: BlockProps) {
       )}
       <div
         className={` ${response?.data.porcentagem_atual ? "[display:none]" : ""
-          } w-full h-full`}
+          } w-full h-auto`}
       >
         <div
           style={{ backgroundImage: `url(${arvoreBranco.src})` }}
