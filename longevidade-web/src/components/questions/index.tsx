@@ -418,7 +418,7 @@ export default function Questions() {
           </div>
         ) : ""}
         <div className="w-full mb-20 h-full ">
-          <div className="w-full pb-5 flex justify-start items-center px-10 h-[10%]">
+          <div className={`w-full ${currentQuestion.id_pergunta === 1 ?"mt-[40px] ":""} pb-5 flex justify-start items-center px-10 h-[10%]`}>
             <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
               <h1 className="flex text-2xl font-bold">
                 {currentQuestion && currentQuestion.id_pergunta}
