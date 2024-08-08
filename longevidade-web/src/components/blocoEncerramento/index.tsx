@@ -66,8 +66,8 @@ export default function BlockEncerramento({
               </li>
             </ul>
           </div>
-          <div className="w-full flex items-center justify-center mt-10 flex-col h-4/5 ">
-            <div className="w-full mt-20 flex items-center justify-center  h-1/2">
+          <div className="w-full flex items-center pt-10 justify-center mt-10 flex-col h-4/5 ">
+            <div className="w-full flex items-center justify-center  h-1/2">
               <Image
                 quality={100}
                 className="w-[90%] flex items-center justify-center h-full"

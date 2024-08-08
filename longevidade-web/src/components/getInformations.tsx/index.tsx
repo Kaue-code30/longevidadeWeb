@@ -87,7 +87,7 @@ export default function GetInformations({ userData }: BlockProps) {
       )}
       <div
         className={` ${response?.data.porcentagem_atual ? "[display:none]" : ""
-          } w-full h-auto`}
+          } w-full h-full overflow-hidden`}
       >
         <div
           style={{ backgroundImage: `url(${arvoreBranco.src})` }}
@@ -180,16 +180,16 @@ export default function GetInformations({ userData }: BlockProps) {
                   confirmar e acessar <FaArrowRight className="text-lg" />
                 </button>
                 <p className="text-center">
-                Ao clicar em confirmar você aceita nossas politica de privacidade.
-                </p>
-                <Link
+                Ao clicar em confirmar você aceita nossa<Link
                   className="w-full flex items-center justify-center font-medium"
                   href={"/politica-privacidade"}
                   target="_blank"
                 >
                   {" "}
-                  Política de Privacidade
+                  Política de Privacidade.
                 </Link>
+                </p>
+                
               </div>
             </div>
           </div>
