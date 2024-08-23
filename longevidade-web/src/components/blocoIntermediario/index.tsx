@@ -54,13 +54,13 @@ export default function BlockIntermediario({
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 || stage === 2 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
               <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>
               <div className="w-4 h-[1px] bg-[#366A48]"></div>
             </li>
-            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
+            <li className={`flex ${stage === 1 || stage === 2 || stage === 3 || stage === 4 ? "opacity-50" : ""} gap-4 items-center justify-center`}>
               <div className="flex items-center justify-center w-6 h-6 bg-[#366A48] rounded-full">
                 <div className="w-1/2 h-1/2 rounded-full bg-second-color"></div>
               </div>

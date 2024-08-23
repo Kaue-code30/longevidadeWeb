@@ -131,7 +131,7 @@ export default function GetInformations({ userData }: BlockProps) {
                   Receba agora mesmo seu resultado. É grátis!
                 </h1>
                 <p className="text-center">
-                Informe seu nome e e-mail para acessar seu <span className="font-medium">ESCORE DE SAÚDE.</span> 
+                  Informe seu nome e e-mail para acessar seu <span className="font-medium">ESCORE DE SAÚDE.</span>
                 </p>
                 <div className="relative w-full ">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -180,16 +180,16 @@ export default function GetInformations({ userData }: BlockProps) {
                   confirmar e acessar <FaArrowRight className="text-lg" />
                 </button>
                 <p className="text-center">
-                Ao clicar em confirmar você aceita nossa<Link
-                  className="w-full flex items-center justify-center font-medium"
-                  href={"/politica-privacidade"}
-                  target="_blank"
-                >
-                  {" "}
-                  Política de Privacidade.
-                </Link>
+                  Ao clicar em confirmar você aceita nossa<Link
+                    className="w-full flex items-center justify-center font-medium"
+                    href={"/politica-privacidade"}
+                    target="_blank"
+                  >
+                    {" "}
+                    Política de Privacidade.
+                  </Link>
                 </p>
-                
+
               </div>
             </div>
           </div>

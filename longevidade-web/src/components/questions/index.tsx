@@ -12,8 +12,10 @@ import BlockIntermediario from "../blocoIntermediario";
 import JsonQuestions from "@/json/blocos.json";
 import bannerOneBlock from "@/assets/BlocoIntermediario/oneBlock.png";
 import bannerTwoBlock from "@/assets/home/gymImage.png";
+import bannerIdosa from "@/assets/velhaJogandoTenis.png";
 import bannerThreeBlock from "@/assets/BlocoIntermediario/thirdBlock.png";
 import bannerFour from "@/assets/BlocoIntermediario/fourthBlock.png";
+import mulherCabeloRosa from "@/assets/mulherSorrindoCabeloRosa.png";
 import { Userdata } from "@/interfaces/userData";
 import { answersData } from "@/interfaces/answer";
 import { motion } from "framer-motion";
@@ -30,16 +32,25 @@ export default function Questions() {
   const [blocoThree, setBlocoThree] = useState(false);
   const [blocoFour, setBlocoFour] = useState(false);
   const [blocoFive, setBlocoFive] = useState(false);
+  const [blocoFaltante, setBlocoFaltante] = useState(false);
   const [oneBlock, setOneBlock] = useState(false);
   const [secondBloc, setSecondBlock] = useState(false);
   const [thirdBlco, setThirdBlock] = useState(false);
   const [fourthBlco, setFourthBlock] = useState(false);
+  const [faltanteBlco, setFaltanteBlock] = useState(false);
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
   const [inputValueAltura, setInputValueAltura] = useState("");
   const [inputValuePeso, setInputValuePeso] = useState("");
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
+
+  // console.log("3",thirdBlco);
+  // console.log("4",fourthBlco);
+  // console.log("5",blocoFive);
+  // console.log("faltante",blocoFaltante);
+  
+
 
   const voltar = () => {
     setCurrentQuestionIndex(currentQuestionIndex - 1)
@@ -113,6 +124,7 @@ export default function Questions() {
       Number(userData.idade) >= 45 &&
       userData.genero === "Masculino"
     ) {
+      // console.log("entrou na 126")
       setFourthBlock(true);
       setBlocoFour(false);
       setBlocoFive(true);
@@ -134,22 +146,31 @@ export default function Questions() {
           Number(userData.idade) < 45 &&
           userData.genero === "Masculino"
         ) {
-          setThirdBlock(true);
+          // setThirdBlock(true);
+          setBlocoFaltante(true);
           setBlocoThree(false);
           setBlocoFive(true);
+          // console.log("entrou na 152")
         } else {
+      
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFour(true);
         }
       } else if (blocoFour) {
+        setThirdBlock(false);
+        setBlocoFaltante(false)
         setFourthBlock(true);
         setBlocoFour(false);
         setBlocoFive(true);
+        // console.log("entrou 162");
+        
       } else if (blocoFive) {
         setFourthBlock(false);
         setBlocoFour(false);
         setBlocoFive(false);
+        // console.log("entrou 168");
+        
         setFinshe(true);
       }
 
@@ -174,7 +195,8 @@ export default function Questions() {
       setBlocoAtual(JsonQuestions.quartoBloco);
     } else if (blocoThree) {
       setBlocoAtual(JsonQuestions.terceiroBloco);
-    } else if (blocoTwo) {
+    }
+    else if (blocoTwo) {
       setBlocoAtual(JsonQuestions.segundoBloco);
     }
   }, [blocoTwo, blocoThree, blocoFour]);
@@ -312,8 +334,7 @@ export default function Questions() {
   const getImageSrc = () => {
 
     if (blocoTwo) {
-      console.log("entrou");
-
+      // console.log("entrou");
       return wine;
     } else if (blocoThree) {
       return academy;
@@ -335,6 +356,8 @@ export default function Questions() {
     setSecondBlock(data);
     setThirdBlock(data);
     setFourthBlock(data);
+    setBlocoFaltante(data); 
+    
   };
 
   return (
@@ -370,10 +393,22 @@ export default function Questions() {
       {thirdBlco && (
         <BlockIntermediario
           arrayQuestions={blocoAtual}
-          banner={bannerThreeBlock.src}
+          banner={bannerIdosa.src}
           text="Falta pouco agora, continue firme no questionário e receba sua avaliação agora e grátis."
           title="Essas Informações de atividade física e sono foram muito importante para definir seu score de saúde."
           secondText="Vamos continuar para a próxima pergunta."
+          stage={3}
+          Imc={false}
+          setBlock={setBlock}
+        />
+      )}
+      {blocoFaltante && (
+        <BlockIntermediario
+          arrayQuestions={blocoAtual}
+          banner={mulherCabeloRosa.src}
+          text="Vamos continuar para a próxima pergunta."
+          title="Como está sua jornanda? Estamos quase acabando."
+          // secondText="Vamos continuar para a próxima pergunta."
           stage={3}
           Imc={false}
           setBlock={setBlock}
@@ -404,7 +439,7 @@ export default function Questions() {
         className={` ${finshe === true ||
           oneBlock === true ||
           secondBloc === true ||
-          thirdBlco === true
+          thirdBlco === true || blocoFaltante === true || fourthBlco === true 
           ? "[display:none]"
           : ""
           } w-full h-full `}
@@ -414,11 +449,11 @@ export default function Questions() {
           <div style={{
             position: "relative", top: "-8%", left: "64%"
           }} >
-            <button className="w-32 h-10 flex items-center justify-center gap-2 text-[#366A48] font-medium rounded-lg " onClick={() => voltar()}> <BiArrowBack className="font-bold"/> voltar</button>
+            <button className="w-32 h-10 flex items-center justify-center gap-2 text-[#366A48] font-medium rounded-lg " onClick={() => voltar()}> <BiArrowBack className="font-bold" /> voltar</button>
           </div>
         ) : ""}
         <div className="w-full mb-20 h-full ">
-          <div className={`w-full ${currentQuestion.id_pergunta === 1 ?"mt-[40px] ":""} pb-5 flex justify-start items-center px-10 h-[10%]`}>
+          <div className={`w-full ${currentQuestion.id_pergunta === 1 ? "mt-[40px] " : ""} pb-5 flex justify-start items-center px-10 h-[10%]`}>
             <div className="w-16  h-16 flex items-center justify-center bg-second-color border shadow-lg rounded-full">
               <h1 className="flex text-2xl font-bold">
                 {currentQuestion && currentQuestion.id_pergunta}
