@@ -29,17 +29,18 @@ export default function Home() {
                 <h1 className="text-2xl text-black font-medium">
                   Conheça a sua saúde!
                 </h1>
-                <div className="flex flex-col items-center justify-center w-full p-2 h-[300px] bg-second-color rounded-lg">
+                <div className="flex flex-col items-center  w-full  h-[300px]  rounded-lg">
+                  
                   <Image
                     quality={100}
-                    className="flex w-full"
+                    className="flex w-full "
                     src={bannerHome.src}
                     alt="Let's Forever"
                     layout="responsive"
                     width={100}
                     height={100}
                   />
-                  <div className="flex items-center h-full justify-center">
+                  <div className="flex h-[100px] rounded-b-2xl p-2 -mt-5 w-[98%] items-center bg-second-color  justify-center">
                     <p className="text-black text-sm font-medium">
                       Responda a esse questionário e receba na hora seu <span className="uppercase font-bold text-third-color">score de saúde</span>.
                     </p>
