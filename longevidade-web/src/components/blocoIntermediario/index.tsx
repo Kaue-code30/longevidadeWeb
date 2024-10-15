@@ -93,7 +93,7 @@ export default function BlockIntermediario({
 
                 </div>
               ) : (
-                <p className="text-sm">
+                <p className="text-left text-sm">
                   {text}
                 </p>
               )}

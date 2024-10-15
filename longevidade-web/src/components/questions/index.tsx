@@ -37,7 +37,6 @@ export default function Questions() {
   const [secondBloc, setSecondBlock] = useState(false);
   const [thirdBlco, setThirdBlock] = useState(false);
   const [fourthBlco, setFourthBlock] = useState(false);
-  const [faltanteBlco, setFaltanteBlock] = useState(false);
   const currentQuestion = blocoAtual[currentQuestionIndex];
   const [inputValue, setInputValue] = useState("");
   const [inputValueAltura, setInputValueAltura] = useState("");
@@ -45,11 +44,9 @@ export default function Questions() {
   const [userData, setUserData] = useState<Userdata>({});
   const [finshe, setFinshe] = useState(false);
 
-  // console.log("3",thirdBlco);
-  // console.log("4",fourthBlco);
-  // console.log("5",blocoFive);
-  // console.log("faltante",blocoFaltante);
-  
+
+
+  console.log(userData.idade);
 
 
   const voltar = () => {
@@ -102,9 +99,13 @@ export default function Questions() {
     ) {
       age--;
     }
+    console.log(age);
+
 
     return age;
   };
+
+
 
   const handleAnswerClick = ({
     answerNumber,
@@ -115,6 +116,8 @@ export default function Questions() {
     verifiedAnswers({ answerNumber, answer, numberQuestion, perguntaNumber });
 
     if (perguntaNumber === 21 && Number(userData.idade) < 40) {
+      console.log("115");
+
       setFourthBlock(true);
       setBlocoFour(false);
       setBlocoFive(true);
@@ -124,7 +127,7 @@ export default function Questions() {
       Number(userData.idade) >= 45 &&
       userData.genero === "Masculino"
     ) {
-      // console.log("entrou na 126")
+      console.log("126");
       setFourthBlock(true);
       setBlocoFour(false);
       setBlocoFive(true);
@@ -147,30 +150,39 @@ export default function Questions() {
           userData.genero === "Masculino"
         ) {
           // setThirdBlock(true);
+          console.log("148");
           setBlocoFaltante(true);
           setBlocoThree(false);
           setBlocoFive(true);
           // console.log("entrou na 152")
+        } else if (Number(userData.idade) < 15) {
+          console.log("159");
+
+          setBlocoFaltante(true);
+          setBlocoThree(false); // desativa blocoTwo
+          setBlocoFive(true);
         } else {
-      
+          console.log("155");
           setThirdBlock(true);
           setBlocoThree(false);
           setBlocoFour(true);
         }
       } else if (blocoFour) {
+        console.log("161");
         setThirdBlock(false);
         setBlocoFaltante(false)
         setFourthBlock(true);
         setBlocoFour(false);
         setBlocoFive(true);
         // console.log("entrou 162");
-        
+
       } else if (blocoFive) {
+        console.log("170");
         setFourthBlock(false);
         setBlocoFour(false);
         setBlocoFive(false);
         // console.log("entrou 168");
-        
+
         setFinshe(true);
       }
 
@@ -179,6 +191,8 @@ export default function Questions() {
         userData.genero === "Feminino" &&
         Number(userData.idade) >= 15
       ) {
+        console.log("aqui 184");
+
         setCurrentQuestionIndex(2);
       } else if (perguntaNumber === 21 && Number(userData.idade) >= 40) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -356,8 +370,8 @@ export default function Questions() {
     setSecondBlock(data);
     setThirdBlock(data);
     setFourthBlock(data);
-    setBlocoFaltante(data); 
-    
+    setBlocoFaltante(data);
+
   };
 
   return (
@@ -439,7 +453,7 @@ export default function Questions() {
         className={` ${finshe === true ||
           oneBlock === true ||
           secondBloc === true ||
-          thirdBlco === true || blocoFaltante === true || fourthBlco === true 
+          thirdBlco === true || blocoFaltante === true || fourthBlco === true
           ? "[display:none]"
           : ""
           } w-full h-full `}
