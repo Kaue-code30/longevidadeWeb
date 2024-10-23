@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  display: flex;
+  width: 100%;
+  
+}
+
+main{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+button{
+  font-size: 15px;
+}
+
+.apexcharts-toolbar{
+  display: none !important;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+

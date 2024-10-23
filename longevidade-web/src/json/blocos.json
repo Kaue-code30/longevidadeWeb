@@ -1,0 +1,681 @@
+{
+  "primeiroBloco": [
+    {
+      "id_pergunta": 1,
+      "pergunta": 1,
+      "descricao": "Qual seu gênero biológico?",
+      "respostas": [
+        {
+          "id_resposta": 1,
+          "resposta": "Masculino",
+          "valor": 1
+        },
+        {
+          "id_resposta": 2,
+          "resposta": "Feminino",
+          "valor": 2
+        }
+      ]
+    },
+    {
+      "id_pergunta": 2,
+      "pergunta": 2,
+      "descricao": "Qual sua data de nascimento?",
+      "respostas": [
+        {
+          "id_resposta": 1,
+          "resposta": "",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "id_pergunta": 3,
+      "pergunta": 3,
+      "descricao": "Qual sua altura (em metros)?",
+      "respostas": [
+        {
+          "id_resposta": 5,
+          "resposta": "",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "id_pergunta": 4,
+      "pergunta": 4,
+      "descricao": "Quanto você acredita que pesa atualmente(em kg)?",
+      "respostas": [
+        {
+          "id_resposta": 6,
+          "resposta": "",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "id_pergunta": 5,
+      "pergunta": 5,
+      "descricao": "Você tem ou já teve hipertensão arterial (pressão alta), doenças do coração, derrame ou Acidente Vascular Cerebral?",
+      "respostas": [
+        {
+          "id_resposta": 1,
+          "resposta": "Sim, e eu tenho dificuldade em controlar minha(s) doença(s)",
+          "valor": 1
+        },
+        {
+          "id_resposta": 2,
+          "resposta": "Sim, eu tenho pelo menos uma dessas doenças, mas estão controladas",
+          "valor": 2
+        },
+        {
+          "id_resposta": 3,
+          "resposta": "Não tenho essas doenças, mas já tive pico de pressão no passado",
+          "valor": 3
+        },
+        {
+          "id_resposta": 4,
+          "resposta": "Não, nunca",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 6,
+      "pergunta": 6,
+      "descricao": "Você tem ou já teve diabetes?",
+      "respostas": [
+        {
+          "id_resposta": 1,
+          "resposta": "Sim, eu tenho dificuldade em controlar a diabetes",
+          "valor": 1
+        },
+        {
+          "id_resposta": 2,
+          "resposta": "Sim, eu tenho diabetes, mas está controlada",
+          "valor": 2
+        },
+        {
+          "id_resposta": 3,
+          "resposta": "Não tenho diabetes, mas já tive pico de glicose sanguínea no passado",
+          "valor": 3
+        },
+        {
+          "id_resposta": 4,
+          "resposta": "Não, nunca",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 7,
+      "pergunta": 7,
+      "descricao": "Você tem ou já teve câncer?",
+      "respostas": [
+        {
+          "id_resposta": 1,
+          "resposta": "Sim, há menos de 5 anos",
+          "valor": 1
+        },
+        {
+          "id_resposta": 2,
+          "resposta": "sim, há mais de 5 anos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 3,
+          "resposta": "Não",
+          "valor": 3
+        }
+      ]
+    },
+    {
+      "id_pergunta": 8,
+      "pergunta": 8,
+      "descricao": "Você tem ansiedade, depressão ou outras doenças relacionadas à saúde mental?",
+      "respostas": [
+        {
+          "id_resposta": 18,
+          "resposta": "Sim, tenho mais de um diagnóstico e tomo medicamentos para controlar",
+          "valor": 1
+        },
+        {
+          "id_resposta": 19,
+          "resposta": "Sim, apenas um diagnóstico e tomo medicamentos para controlar",
+          "valor": 2
+        },
+        {
+          "id_resposta": 20,
+          "resposta": "Sim, apenas um diagnóstico, mas não preciso de medicamentos para controlar",
+          "valor": 3
+        },
+        {
+          "id_resposta": 21,
+          "resposta": "Não",
+          "valor": 4
+        }
+      ]
+    }
+  ],
+  "segundoBloco": [
+    {
+      "id_pergunta": 1,
+      "pergunta": 10,
+      "descricao": "Você fuma ou fumou nos últimos 5 anos?",
+      "respostas": [
+        {
+          "id_resposta": 26,
+          "resposta": "Sim, fumei ou fumo diariamente",
+          "valor": 1
+        },
+        {
+          "id_resposta": 27,
+          "resposta": "Sim, fumei ou fumo com frequencia, mas não diariamente",
+          "valor": 2
+        },
+        {
+          "id_resposta": 28,
+          "resposta": "Sim, fumei ou fumo esporadicamente",
+          "valor": 3
+        },
+        {
+          "id_resposta": 29,
+          "resposta": "Não, nunca",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 2,
+      "pergunta": 11,
+      "descricao": "Você costuma tomar bebida alcoólica? (1 dose = 1 copo de vinho ou de cerveja)",
+      "respostas": [
+        {
+          "id_resposta": 30,
+          "resposta": "Sim, mais do que 5 doses por semana",
+          "valor": 1
+        },
+        {
+          "id_resposta": 31,
+          "resposta": "Sim, entre 2 e 5 doses por semana",
+          "valor": 2
+        },
+        {
+          "id_resposta": 32,
+          "resposta": "Sim, no máximo 2 doses por semana",
+          "valor": 3
+        },
+        {
+          "id_resposta": 33,
+          "resposta": "Não consumo bebidas alcoólicas",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 3,
+      "pergunta": 12,
+      "descricao": "Quanto de açúcar você consome aproximadamente?",
+      "respostas": [
+        {
+          "id_resposta": 34,
+          "resposta": "Muito - quase diariamente, em forma de bolos, refrigerantes e com café",
+          "valor": 1
+        },
+        {
+          "id_resposta": 35,
+          "resposta": "Pouco - apenas 1 colher de chá por dia, por exemplo, para adoçar o café",
+          "valor": 2
+        },
+        {
+          "id_resposta": 36,
+          "resposta": "Intermediário - nem muito e nem pouco",
+          "valor": 3
+        },
+        {
+          "id_resposta": 37,
+          "resposta": "Não consumo açúcar",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 4,
+      "pergunta": 13,
+      "descricao": "Qual quantidade de agua você costuma beber por dia?",
+      "respostas": [
+        {
+          "id_resposta": 38,
+          "resposta": "Menos de 1 litro",
+          "valor": 1
+        },
+        {
+          "id_resposta": 39,
+          "resposta": "Entre 1 e 2 litros",
+          "valor": 2
+        },
+        {
+          "id_resposta": 40,
+          "resposta": "Entre 2 e 3 litros",
+          "valor": 3
+        },
+        {
+          "id_resposta": 41,
+          "resposta": "Mais de 3 litros",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 5,
+      "pergunta": 14,
+      "descricao": "Quanto de proteína você consome por dia em média (aproximadamente)?",
+      "respostas": [
+        {
+          "id_resposta": 42,
+          "resposta": "Consumo 1 porção ao dia ou não consumo proteína animal",
+          "valor": 1
+        },
+        {
+          "id_resposta": 43,
+          "resposta": "Consumo de 2 ou 3 porções de proteína animal ao dia",
+          "valor": 2
+        },
+        {
+          "id_resposta": 44,
+          "resposta": "Consumo de 4 ou 5 porções de proteína animal ao dia",
+          "valor": 3
+        },
+        {
+          "id_resposta": 45,
+          "resposta": "Consumo mais do que 5 porções de proteína animal",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 6,
+      "pergunta": 15,
+      "descricao": "Quantas vezes por semana, você consome alimentos ultraprocessados ou industrializados (comida pronta no mercado e afins)?",
+      "respostas": [
+        {
+          "id_resposta": 46,
+          "resposta": "mais que 5 vezes",
+          "valor": 1
+        },
+        {
+          "id_resposta": 47,
+          "resposta": "entre 4 e 5 vezes",
+          "valor": 2
+        },
+        {
+          "id_resposta": 48,
+          "resposta": "entre 2 e 3 vezes",
+          "valor": 3
+        },
+        {
+          "id_resposta": 49,
+          "resposta": "até 1 vez por semana",
+          "valor": 4
+        }
+      ]
+    }
+  ],
+  "terceiroBloco": [
+    {
+      "id_pergunta": 1,
+      "pergunta": 16,
+      "descricao": "Quantas vezes por semana você faz musculação?",
+      "respostas": [
+        {
+          "id_resposta": 50,
+          "resposta": "Não faço musculação",
+          "valor": 1
+        },
+        {
+          "id_resposta": 51,
+          "resposta": "Entre 1 e 2 vezes",
+          "valor": 2
+        },
+        {
+          "id_resposta": 52,
+          "resposta": "3 vezes",
+          "valor": 3
+        },
+        {
+          "id_resposta": 53,
+          "resposta": "4 ou mais vez",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 2,
+      "pergunta": 17,
+      "descricao": "Como está sua autonomia para levantar do chão, considerando que você está sentado no chão?",
+      "respostas": [
+        {
+          "id_resposta": 54,
+          "resposta": "não consigo levantar do chão sem apoio",
+          "valor": 1
+        },
+        {
+          "id_resposta": 55,
+          "resposta": "consigo levantar do chão apoiando as duas mãos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 56,
+          "resposta": "consigo levantar do chão apoiando uma das mãos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 57,
+          "resposta": "consigo levantar do chão sem apoiar as mãos",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 3,
+      "pergunta": 18,
+      "descricao": "Quantas vezes por semana você faz atividade aeróbica, como caminhada, corrida ou andar de bicicleta?",
+      "respostas": [
+        {
+          "id_resposta": 58,
+          "resposta": "Não faço atividade aeróbica",
+          "valor": 1
+        },
+        {
+          "id_resposta": 59,
+          "resposta": "Entre 1 e 2 vezes",
+          "valor": 2
+        },
+        {
+          "id_resposta": 60,
+          "resposta": "3 vezes",
+          "valor": 3
+        },
+        {
+          "id_resposta": 61,
+          "resposta": "4 ou mais vez",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 4,
+      "pergunta": 23,
+      "descricao": "Quantas horas você costuma dormir por noite?",
+      "respostas": [
+        {
+          "id_resposta": 78,
+          "resposta": "Menos de 5 ou mais de 10",
+          "valor": 1
+        },
+        {
+          "id_resposta": 79,
+          "resposta": "Entre 5 e 6 ou entre 9 e 10",
+          "valor": 2
+        },
+        {
+          "id_resposta": 80,
+          "resposta": "7",
+          "valor": 3
+        },
+        {
+          "id_resposta": 81,
+          "resposta": "8",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 5,
+      "pergunta": 24,
+      "descricao": "Qual sua sensação de descanso ao longo do dia?",
+      "respostas": [
+        {
+          "id_resposta": 82,
+          "resposta": "Me sinto cansado todos os dias",
+          "valor": 1
+        },
+        {
+          "id_resposta": 83,
+          "resposta": "Passo boa parte dos dias cansado",
+          "valor": 2
+        },
+        {
+          "id_resposta": 84,
+          "resposta": "Quase sempre estou descansado",
+          "valor": 3
+        },
+        {
+          "id_resposta": 85,
+          "resposta": "Estou sempre descansado",
+          "valor": 4
+        }
+      ]
+    }
+  ],
+  "quartoBloco": [
+    {
+      "id_pergunta": 1,
+      "pergunta": 19,
+      "descricao": "Quando você fez seu último preventivo para câncer de intestino, como o exame de colonoscopia ou pesquisa de sangue oculto nas fezes?",
+      "respostas": [
+        {
+          "id_resposta": 62,
+          "resposta": "nunca",
+          "valor": 1
+        },
+        {
+          "id_resposta": 63,
+          "resposta": "Há mais de 5 anos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 64,
+          "resposta": "Entre 3 e 5 anos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 65,
+          "resposta": "Há menos de 3 anos",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 2,
+      "pergunta": 20,
+      "descricao": "Quando você fez seu último exame preventivo para câncer da próstata, como exame médico, ultrassonografia de próstata ou PSA sanguíneo?",
+      "respostas": [
+        {
+          "id_resposta": 66,
+          "resposta": "nunca",
+          "valor": 1
+        },
+        {
+          "id_resposta": 67,
+          "resposta": "Há mais de 2 anos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 68,
+          "resposta": "Entre 1 e 2 anos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 69,
+          "resposta": "nos últimos 12 meses",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 3,
+      "pergunta": 21,
+      "descricao": "Quando você fez seu último preventivo para câncer de útero, como exame médico ginecológico com Papanicolau (colpocitologia oncológica)?",
+      "respostas": [
+        {
+          "id_resposta": 70,
+          "resposta": "Nunca",
+          "valor": 1
+        },
+        {
+          "id_resposta": 71,
+          "resposta": "Há mais de 2 anos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 72,
+          "resposta": "Entre 1 e 2 anos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 73,
+          "resposta": "Nos últimos 12 meses",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 4,
+      "pergunta": 22,
+      "descricao": "Quando você fez seu último preventivo para câncer de mama, como mamografia?",
+      "respostas": [
+        {
+          "id_resposta": 74,
+          "resposta": "Nunca",
+          "valor": 1
+        },
+        {
+          "id_resposta": 75,
+          "resposta": "Há mais de 2 anos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 76,
+          "resposta": "Entre 1 e 2 anos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 77,
+          "resposta": "Nos últimos 12 meses",
+          "valor": 4
+        }
+      ]
+    }
+  ],
+  "quintoBloco": [
+    {
+      "id_pergunta": 1,
+      "pergunta": 25,
+      "descricao": "Você tem clareza sobre os seus objetivos e propósito de vida?",
+      "respostas": [
+        {
+          "id_resposta": 86,
+          "resposta": "Não tenho ou nunca pensei nisso",
+          "valor": 1
+        },
+        {
+          "id_resposta": 87,
+          "resposta": "Tenho dúvida se tenho objetivos e propósitos claros",
+          "valor": 2
+        },
+        {
+          "id_resposta": 88,
+          "resposta": "Estou desenvolvendo esse conceito",
+          "valor": 3
+        },
+        {
+          "id_resposta": 89,
+          "resposta": "Sim",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 2,
+      "pergunta": 26,
+      "descricao": "Você tem o sentimento de pertencimento a algum grupo fora do trabalho ou família (hobby, igreja, amigos ou esporte)?",
+      "respostas": [
+        {
+          "id_resposta": 90,
+          "resposta": "Me sinto frequentemente sozinho",
+          "valor": 1
+        },
+        {
+          "id_resposta": 91,
+          "resposta": "Me sinto eventualmente sozinho",
+          "valor": 2
+        },
+        {
+          "id_resposta": 92,
+          "resposta": "Estou buscando um grupo para chamar de meu",
+          "valor": 3
+        },
+        {
+          "id_resposta": 93,
+          "resposta": "Sim",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta": 3,
+      "pergunta": 27,
+      "descricao": "Você considera que tem relacionamentos que realmente importam para você?",
+      "respostas": [
+        {
+          "id_resposta": 94,
+          "resposta": "Não tenho relacionamentos que importam",
+          "valor": 1
+        },
+        {
+          "id_resposta": 95,
+          "resposta": "Não estou satisfeito com meus relacionamentos",
+          "valor": 2
+        },
+        {
+          "id_resposta": 96,
+          "resposta": "Poucos",
+          "valor": 3
+        },
+        {
+          "id_resposta": 97,
+          "resposta": "Muitos",
+          "valor": 4
+        }
+      ]
+    },
+    {
+      "id_pergunta":4,
+      "pergunta": 28,
+      "descricao": "Como você normalmente reage a algum evento de estresse?",
+      "respostas": [
+        {
+          "id_resposta": 98,
+          "resposta": "Explosivo e não resolvo o problema",
+          "valor": 1
+        },
+        {
+          "id_resposta": 99,
+          "resposta": "Fico angustiado e não consigo resolver o problema",
+          "valor": 2
+        },
+        {
+          "id_resposta": 100,
+          "resposta": "Fico angustiado mas consigo resolver o problema",
+          "valor": 3
+        },
+        {
+          "id_resposta": 101,
+          "resposta": "Consigo me afastar do problema para achar a melhor solução",
+          "valor": 4
+        }
+      ]
+    }
+  ]
+}
